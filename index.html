@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Akashic Records · A Terratales Venture</title>
+<meta name="description" content="The Akashic Records is a legal-intelligence platform in development, a Terratales venture. This preview uses representative sample data only.">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070F1E;--bg2:#0C1829;--bg3:#121F33;--bg4:#172540;--g:#D4A84B;--gl:rgba(212,168,75,.13);--gd:#9A6F22;--glt:#F0D282;--p:#5B4AE8;--pl:#9B8EF2;--c:#06B6D4;--gr:#10B981;--re:#EF4444;--or:#F97316;--ye:#EAB308;--tx:#F1EDE6;--t2:#8BA3BE;--t3:#445E7A;--b1:rgba(212,168,75,.22);--b2:rgba(255,255,255,.08);--b3:rgba(255,255,255,.04);--lbg:#F8FAFC;--lbg2:#FFFFFF;--ltx:#0F172A;--lt2:#475569;--lt3:#94A3B8;--lac:#4F46E5;--lb:#E2E8F0;--lba:rgba(79,70,229,.09);}
+*{margin:0;padding:0;box-sizing:border-box;}html,body{height:100%;}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.6;}
+.cg{font-family:'Cormorant Garamond',Georgia,serif;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:rgba(212,168,75,.3);border-radius:2px;}
+a{text-decoration:none;color:inherit;}button{cursor:pointer;font-family:inherit;}select,input,textarea{font-family:inherit;}
+#sf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 1.6rem;background:rgba(7,15,30,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--b2);}
+.logo{display:flex;align-items:center;gap:.6rem;cursor:pointer;}
+.ltx2{display:flex;flex-direction:column;line-height:1.1;}
+.lnm{font-family:'Cormorant Garamond',Georgia,serif;font-size:.9rem;font-weight:700;color:var(--g);letter-spacing:.06em;}
+.ltag{font-size:.4rem;color:var(--t3);letter-spacing:.22em;text-transform:uppercase;}
+.nl{display:flex;list-style:none;gap:.05rem;align-items:center;}
+.nl>li{position:relative;}
+.nl a{display:block;padding:.28rem .65rem;border-radius:7px;font-size:.71rem;font-weight:500;color:var(--t2);cursor:pointer;transition:all .15s;}
+.nl a:hover,.nl a.on{color:var(--g);background:var(--gl);}
+.ddw{position:relative;}
+.ddm{position:absolute;top:calc(100%+5px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--b1);border-radius:10px;padding:.45rem;min-width:195px;display:none;box-shadow:0 10px 32px rgba(0,0,0,.6);z-index:500;}
+.ddm.open{display:block;}
+.ddi{display:flex;align-items:center;gap:.48rem;padding:.46rem .72rem;border-radius:7px;font-size:.72rem;color:var(--t2);cursor:pointer;transition:all .14s;}
+.ddi:hover{background:var(--gl);color:var(--g);}
+.nr{display:flex;align-items:center;gap:.45rem;}
+.lswrap{position:relative;}
+.lsbtn{display:flex;align-items:center;gap:.28rem;padding:.24rem .55rem;background:transparent;border:1px solid var(--b2);border-radius:7px;color:var(--t2);font-size:.68rem;transition:all .15s;}
+.lsbtn:hover{border-color:var(--b1);color:var(--g);}
+.lsdrop{position:absolute;top:calc(100%+5px);right:0;background:var(--bg2);border:1px solid var(--b1);border-radius:10px;width:195px;max-height:275px;overflow-y:auto;display:none;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,.55);}
+.lsdrop.open{display:block;}
+.ldsrch{padding:.48rem .68rem;border-bottom:1px solid var(--b2);}
+.ldsrch input{width:100%;background:transparent;border:none;color:var(--tx);font-size:.7rem;outline:none;}
+.ldsrch input::placeholder{color:var(--t3);}
+.li3{display:flex;align-items:center;justify-content:space-between;padding:.36rem .58rem;cursor:pointer;transition:background .1s;}
+.li3:hover{background:var(--gl);}
+.li3.sel{background:var(--gl);}
+.li3 .lname{font-size:.72rem;color:var(--tx);font-weight:500;}
+.li3 .lscr{font-size:.64rem;color:var(--t3);}
+.li3 .lck{color:var(--g);font-size:.66rem;}
+.bci-nav{display:flex;align-items:center;gap:.25rem;padding:.2rem .55rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.22);border-radius:20px;font-size:.58rem;color:var(--gr);font-weight:700;white-space:nowrap;}
+.btn{padding:.3rem .88rem;border-radius:7px;font-size:.7rem;font-weight:600;transition:all .15s;border:none;letter-spacing:.02em;}
+.bg2{background:transparent;color:var(--t2);border:1px solid var(--b2);}
+.bg2:hover{border-color:var(--b1);color:var(--g);}
+.bg{background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;}
+.bg:hover{box-shadow:0 0 20px rgba(212,168,75,.35);transform:translateY(-1px);}
+.btn-reg{background:rgba(212,168,75,.1);border:1px solid var(--b1);color:var(--g);}
+
+main{position:relative;z-index:1;padding-top:56px;}
+.sec{display:none;}.sec.on{display:block;}
+.msec{display:none;}.msec.on{display:grid;}
+
+/* ======= SPLIT HERO ======= */
+#shome{min-height:calc(100vh - 56px);}
+.hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);position:relative;}
+.hs-divider{position:absolute;left:50%;top:8%;height:84%;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,168,75,.4) 30%,rgba(212,168,75,.4) 70%,transparent);z-index:3;pointer-events:none;}
+
+.hs-pane{display:flex;flex-direction:column;justify-content:center;padding:3.5rem 3.5rem 3.5rem 4rem;position:relative;overflow:hidden;transition:filter .25s;}
+.hs-pane:hover{filter:brightness(1.04);}
+.hs-left{background:linear-gradient(150deg,#0C1829 0%,#070F1E 100%);}
+.hs-right{background:linear-gradient(150deg,#12103F 0%,#090720 100%);}
+/* subtle glow blooms */
+.hs-left::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,75,.08) 0%,transparent 70%);top:-80px;left:-80px;pointer-events:none;}
+.hs-right::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(91,74,232,.1) 0%,transparent 70%);bottom:-80px;right:-80px;pointer-events:none;}
+
+.hs-label{font-size:.72rem;font-style:italic;color:rgba(212,168,75,.65);margin-bottom:.65rem;letter-spacing:.04em;}
+.hs-label-r{color:rgba(155,142,242,.65);}
+.hs-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.02;margin-bottom:.85rem;color:var(--tx);}
+.hs-acc{display:block;font-style:italic;color:var(--g);}
+.hs-acc-r{display:block;font-style:italic;color:var(--pl);}
+.hs-desc{font-size:.78rem;color:var(--t2);max-width:360px;line-height:1.65;margin-bottom:1.5rem;}
+
+/* Search bar in hero panes */
+.hs-bar{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.3rem;}
+.hs-row{display:flex;gap:.45rem;}
+.hs-inp{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9px;color:var(--tx);padding:.62rem .9rem;font-size:.78rem;outline:none;transition:border-color .18s;}
+.hs-inp:focus{border-color:var(--g);}
+.hs-inp-r:focus{border-color:var(--pl);}
+.hs-inp::placeholder{color:var(--t3);}
+.hs-sel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:9px;color:var(--t2);padding:.62rem .75rem;font-size:.72rem;outline:none;cursor:pointer;white-space:nowrap;}
+.hs-sel option{background:#0C1829;}
+.hs-go{padding:.62rem 1.1rem;background:linear-gradient(135deg,var(--g),var(--gd));border:none;border-radius:9px;color:#050D1A;font-size:.75rem;font-weight:700;white-space:nowrap;transition:opacity .18s;}
+.hs-go:hover{opacity:.88;}
+.hs-go-r{background:linear-gradient(135deg,var(--pl),var(--p));color:white;}
+.ng-mini{display:flex;gap:.3rem;}
+.ngm{padding:.62rem .75rem;border-radius:9px;font-size:.7rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--t2);transition:all .15s;white-space:nowrap;}
+.ngm.on{background:rgba(155,142,242,.2);border-color:rgba(155,142,242,.4);color:var(--pl);}
+
+/* Quick chips */
+.hs-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.35rem;}
+.hchip{padding:.17rem .58rem;background:rgba(212,168,75,.08);border:1px solid rgba(212,168,75,.18);border-radius:20px;font-size:.61rem;color:rgba(212,168,75,.75);cursor:pointer;transition:all .13s;}
+.hchip:hover{background:rgba(212,168,75,.15);color:var(--g);}
+.hchip-r{background:rgba(155,142,242,.08);border-color:rgba(155,142,242,.18);color:rgba(155,142,242,.75);}
+.hchip-r:hover{background:rgba(155,142,242,.15);color:var(--pl);}
+
+/* CTA buttons in panes */
+.hs-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.58rem 1.35rem;background:transparent;border:1px solid rgba(212,168,75,.35);border-radius:9px;color:var(--g);font-size:.78rem;font-weight:600;transition:all .18s;}
+.hs-cta:hover{background:rgba(212,168,75,.1);border-color:var(--g);}
+.hs-cta-r{border-color:rgba(155,142,242,.35);color:var(--pl);}
+.hs-cta-r:hover{background:rgba(155,142,242,.1);border-color:var(--pl);}
+
+/* Below fold */
+.bfold{background:var(--bg);border-top:1px solid var(--b2);}
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg2);border-bottom:1px solid var(--b2);}
+.sst{text-align:center;padding:1.4rem 1rem;border-right:1px solid var(--b2);}
+.sst:last-child{border-right:none;}
+.sstv{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:700;color:var(--g);display:block;line-height:1;}
+.sstl{font-size:.62rem;color:var(--t3);margin-top:.22rem;letter-spacing:.07em;text-transform:uppercase;}
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:1.8rem;padding:1rem 2rem;flex-wrap:wrap;border-bottom:1px solid var(--b2);background:var(--bg);}
+.tit{display:flex;align-items:center;gap:.28rem;font-size:.65rem;color:var(--t3);}
+
+/* Features section below fold */
+.feats-sec{padding:4rem 2rem;max-width:1200px;margin:0 auto;}
+.sec-hd{text-align:center;margin-bottom:2.2rem;}
+.sec-lbl{font-size:.65rem;letter-spacing:.18em;color:var(--g);text-transform:uppercase;font-weight:700;margin-bottom:.5rem;}
+.sec-ttl{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;line-height:1.2;margin-bottom:.45rem;}
+.sec-dsc{color:var(--t2);font-size:.84rem;max-width:480px;margin:0 auto;line-height:1.65;}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1rem;}
+.fc{background:var(--bg2);border:1px solid var(--b2);border-radius:13px;padding:1.45rem;transition:all .2s;position:relative;overflow:hidden;}
+.fc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g),transparent);opacity:0;transition:opacity .2s;}
+.fc:hover{border-color:rgba(212,168,75,.25);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.fc:hover::after{opacity:1;}
+.fic{width:42px;height:42px;background:var(--gl);border:1px solid var(--b1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.85rem;}
+.fc h3{font-size:.86rem;font-weight:700;margin-bottom:.3rem;}
+.fc p{font-size:.74rem;color:var(--t2);line-height:1.6;}
+.ftag{display:inline-block;margin-top:.55rem;padding:.12rem .46rem;background:rgba(212,168,75,.07);border:1px solid var(--b1);border-radius:4px;font-size:.58rem;color:var(--g);font-weight:700;letter-spacing:.05em;}
+
+/* Section headers (shared) */
+.sphdr{padding:1.6rem 2rem 1.2rem;border-bottom:1px solid var(--b2);background:linear-gradient(180deg,var(--bg2),var(--bg));}
+.sphdr-in{max-width:1360px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.85rem;}
+.sphdr-in h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:700;}
+.sphdr-in p{font-size:.74rem;color:var(--t2);margin-top:.2rem;}
+
+/* ======= FIND A LAWYER ======= */
+#sdir{padding:0;}
+.dir-in{max-width:1360px;margin:0 auto;padding:1.4rem 1.7rem;}
+.dlayout{display:grid;grid-template-columns:245px 1fr;gap:1.2rem;align-items:start;}
+.fp{background:var(--bg2);border:1px solid var(--b2);border-radius:13px;padding:1.2rem;position:sticky;top:66px;}
+.fph{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.fph h3{font-size:.75rem;font-weight:700;color:var(--g);}
+.frst{background:transparent;border:none;font-size:.64rem;color:var(--t3);}
+.frst:hover{color:var(--re);}
+.fg{margin-bottom:1rem;}
+.fg>label{display:block;font-size:.58rem;color:var(--t3);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.38rem;}
+.fsel{width:100%;background:var(--bg3);border:1px solid var(--b2);border-radius:7px;color:var(--tx);padding:.36rem .6rem;font-size:.72rem;outline:none;transition:border-color .15s;}
+.fsel:focus{border-color:var(--b1);}
+.fsel option{background:var(--bg2);}
+.rng{-webkit-appearance:none;width:100%;height:3px;background:rgba(255,255,255,.08);border-radius:2px;outline:none;}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;background:var(--g);border-radius:50%;cursor:pointer;}
+.rvls{display:flex;justify-content:space-between;font-size:.58rem;color:var(--t3);margin-top:.22rem;}
+.tcloud{display:flex;flex-wrap:wrap;gap:.28rem;}
+.fch{padding:.15rem .48rem;background:var(--bg3);border:1px solid var(--b2);border-radius:20px;font-size:.6rem;color:var(--t2);cursor:pointer;transition:all .12s;}
+.fch:hover,.fch.on{background:var(--gl);border-color:var(--b1);color:var(--g);}
+.fapply{width:100%;padding:.52rem;background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;border:none;border-radius:8px;font-weight:700;font-size:.74rem;margin-top:.32rem;}
+.msrch{display:flex;align-items:center;gap:.32rem;background:var(--bg2);border:1px solid var(--b2);border-radius:8px;padding:.32rem .72rem;transition:border-color .17s;}
+.msrch:focus-within{border-color:var(--b1);}
+.msrch input{background:transparent;border:none;color:var(--tx);font-size:.72rem;outline:none;width:168px;}
+.msrch input::placeholder{color:var(--t3);}
+.ssel{background:var(--bg2);border:1px solid var(--b2);border-radius:8px;color:var(--t2);padding:.32rem .65rem;font-size:.7rem;outline:none;}
+.ssel option{background:var(--bg2);}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:.9rem;}
+/* Lawyer cards */
+.lcard{background:var(--bg2);border:1px solid var(--b2);border-radius:13px;padding:1.25rem;transition:all .2s;cursor:pointer;position:relative;overflow:hidden;}
+.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);opacity:0;transition:opacity .2s;}
+.lcard:hover{border-color:rgba(212,168,75,.28);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.lcard:hover::before{opacity:1;}
+.lct{display:flex;gap:.7rem;margin-bottom:.78rem;align-items:flex-start;}
+.lav{position:relative;flex-shrink:0;}
+.lavc{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;border:2px solid rgba(255,255,255,.1);}
+.lonl{position:absolute;bottom:1px;right:1px;width:9px;height:9px;background:var(--gr);border-radius:50%;border:2px solid var(--bg2);}
+.lnm{font-size:.83rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lenr{font-size:.6rem;color:var(--t3);margin-top:.06rem;}
+.lver{display:inline-flex;align-items:center;gap:.14rem;padding:.1rem .32rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.18);border-radius:4px;font-size:.55rem;color:var(--gr);font-weight:700;margin-top:.2rem;}
+.cr{position:relative;width:44px;height:44px;flex-shrink:0;}
+.cr svg{transform:rotate(-90deg);overflow:visible;}
+.crtr{fill:none;stroke:rgba(255,255,255,.05);stroke-width:4;}
+.crfl{fill:none;stroke-width:4;stroke-linecap:round;}
+.crval{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.6rem;font-weight:900;}
+.crlbl{font-size:.49rem;color:var(--t3);text-align:center;margin-top:.1rem;}
+.lock-ring{position:relative;width:44px;height:44px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;}
+.lock-circ{width:44px;height:44px;border-radius:50%;border:2px dashed rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.025);font-size:.9rem;}
+.lock-lbl{font-size:.47rem;color:var(--t3);margin-top:.1rem;text-align:center;}
+.etags{display:flex;flex-wrap:wrap;gap:.24rem;margin-bottom:.72rem;}
+.et{padding:.12rem .42rem;background:rgba(91,74,232,.15);border:1px solid rgba(155,142,242,.2);border-radius:4px;font-size:.58rem;color:var(--pl);}
+.lms{display:grid;grid-template-columns:repeat(3,1fr);gap:.48rem;padding:.58rem;background:rgba(255,255,255,.02);border-radius:8px;margin-bottom:.72rem;border:1px solid var(--b2);}
+.lmsv{display:block;font-size:.78rem;font-weight:800;color:var(--g);line-height:1;}
+.lmsk{display:block;font-size:.52rem;color:var(--t3);margin-top:.08rem;text-transform:uppercase;letter-spacing:.04em;}
+.wbw{margin-bottom:.72rem;}
+.wbh{display:flex;justify-content:space-between;font-size:.6rem;color:var(--t2);margin-bottom:.2rem;}
+.wbt{height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;}
+.wbf{height:100%;border-radius:2px;}
+.prem{position:relative;}
+.prem .prem-c{filter:blur(5px);pointer-events:none;user-select:none;opacity:.7;}
+.prem .prem-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,15,30,.55);border-radius:8px;z-index:5;backdrop-filter:blur(2px);}
+.prem-cta{display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;}
+.prem-cta p{font-size:.64rem;color:var(--t2);}
+.prem-btn{padding:.28rem .78rem;background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;border:none;border-radius:6px;font-size:.65rem;font-weight:700;}
+.fchips{display:flex;flex-wrap:wrap;gap:.24rem;margin-bottom:.72rem;}
+.fchip{display:flex;align-items:center;gap:.14rem;padding:.1rem .44rem;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.15);border-radius:4px;font-size:.57rem;color:var(--c);}
+.llng{display:flex;align-items:center;gap:.22rem;margin-bottom:.72rem;font-size:.6rem;color:var(--t3);flex-wrap:wrap;}
+.lngtag{padding:.07rem .36rem;background:rgba(255,255,255,.04);border:1px solid var(--b2);border-radius:3px;font-size:.56rem;color:var(--t2);}
+.pchip{padding:.1rem .42rem;border-radius:4px;font-size:.55rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+.pcc{background:rgba(239,68,68,.1);color:var(--re);border:1px solid rgba(239,68,68,.22);}
+.pch{background:rgba(249,115,22,.1);color:var(--or);border:1px solid rgba(249,115,22,.22);}
+.pcm{background:rgba(234,179,8,.1);color:var(--ye);border:1px solid rgba(234,179,8,.22);}
+.pcl{background:rgba(16,185,129,.1);color:var(--gr);border:1px solid rgba(16,185,129,.22);}
+.lcact{display:flex;gap:.38rem;}
+.bxs{flex:1;padding:.4rem;border-radius:7px;font-size:.67rem;font-weight:700;transition:all .15s;border:none;}
+.bxo{background:transparent;border:1px solid var(--b1);color:var(--g);}
+.bxo:hover{background:var(--gl);}
+.bxf{background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;}
+.bxf:hover{box-shadow:0 4px 12px rgba(212,168,75,.3);}
+.bxp{background:rgba(91,74,232,.22);border:1px solid rgba(155,142,242,.22);color:var(--pl);}
+.bxp:hover{background:rgba(91,74,232,.38);}
+
+/* LAW FIRMS (light) */
+#sfirms{padding:0;background:var(--lbg);min-height:calc(100vh - 56px);}
+.fh{background:var(--lbg2);border-bottom:1px solid var(--lb);padding:1.4rem 2rem;}
+.fh-in{max-width:1360px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.fh-in h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--ltx);}
+.fh-in p{font-size:.74rem;color:var(--lt2);margin-top:.2rem;}
+.fsrch{display:flex;align-items:center;gap:.45rem;background:var(--lbg);border:1px solid var(--lb);border-radius:8px;padding:.4rem .82rem;}
+.fsrch input{background:transparent;border:none;color:var(--ltx);font-size:.75rem;outline:none;width:190px;}
+.fsrch input::placeholder{color:var(--lt3);}
+#firms-dir{max-width:1360px;margin:0 auto;padding:1.4rem 2rem;display:grid;grid-template-columns:205px 1fr;gap:1.4rem;align-items:start;}
+.firms-filter{background:var(--lbg2);border:1px solid var(--lb);border-radius:12px;padding:1.1rem;position:sticky;top:66px;}
+.fft{font-size:.6rem;font-weight:700;color:var(--ltx);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.72rem;}
+.ffcheck{display:flex;align-items:center;gap:.45rem;margin-bottom:.48rem;cursor:pointer;}
+.ffcheck input[type="checkbox"]{width:13px;height:13px;accent-color:var(--lac);cursor:pointer;}
+.ffcheck span{font-size:.72rem;color:var(--lt2);}
+.ng-tog{display:flex;gap:.45rem;margin-bottom:1.1rem;}
+.ng-b{padding:.3rem .85rem;border-radius:20px;font-size:.72rem;font-weight:500;cursor:pointer;border:1px solid var(--lb);background:var(--lbg);color:var(--lt2);transition:all .15s;}
+.ng-b.on{background:var(--ltx);color:white;border-color:var(--ltx);}
+.firm-list{background:var(--lbg2);border:1px solid var(--lb);border-radius:12px;overflow:hidden;}
+.firm-row{display:flex;align-items:center;gap:1rem;padding:.95rem 1.2rem;border-bottom:1px solid var(--lb);transition:background .12s;cursor:pointer;}
+.firm-row:last-child{border-bottom:none;}
+.firm-row:hover{background:#EEF2FF;}
+.firm-logo{width:38px;height:38px;border-radius:50%;border:1px solid var(--lb);background:var(--lbg);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:var(--lt2);flex-shrink:0;}
+.firm-nm{font-size:.88rem;font-weight:700;color:var(--ltx);flex:1;}
+.firm-accs{display:flex;gap:.38rem;flex-wrap:wrap;margin-top:.18rem;}
+.firm-acc{display:flex;align-items:center;gap:.18rem;font-size:.62rem;color:var(--lac);font-weight:500;}
+.firm-pl{display:flex;align-items:center;gap:.18rem;font-size:.72rem;color:var(--lac);font-weight:600;white-space:nowrap;flex-shrink:0;}
+.firm-pl:hover{text-decoration:underline;}
+#firms-profile{display:none;background:var(--lbg);}
+.fp-hdr{background:var(--lbg2);border-bottom:1px solid var(--lb);padding:1.4rem 2rem;}
+.fp-hdr-in{max-width:1360px;margin:0 auto;}
+.fp-bc{display:flex;align-items:center;gap:.38rem;font-size:.7rem;color:var(--lt3);margin-bottom:.85rem;}
+.fp-bc .bc-lnk{color:var(--lac);cursor:pointer;}
+.fp-bc .bc-lnk:hover{text-decoration:underline;}
+.fp-brand{display:flex;align-items:center;gap:1rem;}
+.fp-logo2{width:65px;height:65px;border-radius:50%;border:1px solid var(--lb);background:var(--lbg);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:var(--lt2);flex-shrink:0;}
+.fp-nm{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--ltx);}
+.fp-web{font-size:.75rem;color:var(--lac);display:flex;align-items:center;gap:.28rem;margin-top:.28rem;}
+.fp-body{max-width:1360px;margin:0 auto;padding:1.4rem 2rem;display:grid;grid-template-columns:175px 1fr;gap:1.4rem;align-items:start;}
+.fp-sidenav{position:sticky;top:66px;}
+.fp-csel{width:100%;background:var(--lbg2);border:1px solid var(--lb);border-radius:8px;color:var(--ltx);padding:.4rem .68rem;font-size:.73rem;outline:none;margin-bottom:1.1rem;cursor:pointer;}
+.fp-nav{display:block;padding:.42rem .68rem;font-size:.75rem;color:var(--lt2);cursor:pointer;border-radius:6px;transition:all .12s;border-left:2px solid transparent;margin-bottom:.12rem;}
+.fp-nav:hover{color:var(--ltx);}
+.fp-nav.on{color:var(--lac);border-left-color:var(--lac);background:var(--lba);font-weight:600;}
+.rk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;}
+.rk-card{background:var(--lbg2);border:1px solid var(--lb);border-radius:10px;padding:.95rem;}
+.rk-cc{font-size:.6rem;font-weight:700;color:var(--lac);letter-spacing:.1em;margin-bottom:.35rem;text-transform:uppercase;}
+.rk-area{font-size:.82rem;font-weight:700;color:var(--ltx);margin-bottom:.7rem;line-height:1.3;}
+.rk-tier{width:25px;height:25px;background:var(--ltx);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:white;}
+.abt-txt{font-size:.8rem;color:var(--lt2);line-height:1.75;max-width:720px;}
+.abt-txt p{margin-bottom:.85rem;}
+.abt-txt ul{padding-left:1.1rem;margin-bottom:.85rem;}
+.abt-txt ul li{margin-bottom:.38rem;}
+.plgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.62rem;}
+.plcard{background:var(--lbg2);border:1px solid var(--lb);border-radius:10px;padding:.85rem;display:flex;gap:.72rem;align-items:center;}
+.plav{width:38px;height:38px;border-radius:50%;background:var(--lbg);border:1px solid var(--lb);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--lt3);font-size:1.3rem;}
+.pln{font-size:.77rem;font-weight:700;color:var(--ltx);}
+.plrole{font-size:.65rem;color:var(--lt2);margin-top:.08rem;}
+.gg{display:grid;grid-template-columns:repeat(2,1fr);gap:.72rem;}
+.gc{background:var(--lbg2);border:1px solid var(--lb);border-radius:10px;padding:1.05rem;}
+.gc-tp{font-size:.58rem;font-weight:700;color:var(--lac);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.45rem;}
+.gc-ttl{font-size:.88rem;font-weight:700;color:var(--ltx);line-height:1.3;margin-bottom:.6rem;}
+.gc-ttl span{color:var(--lac);}
+.gc-dt{font-size:.65rem;color:var(--lt3);margin-bottom:.35rem;}
+.gc-auth{font-size:.68rem;color:var(--lt2);}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.ct-city{font-size:.6rem;font-weight:700;color:var(--lac);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.45rem;}
+.ct-addr{font-size:.72rem;color:var(--lt2);line-height:1.6;}
+.ct-phone{font-size:.72rem;color:var(--lac);margin-top:.38rem;display:block;}
+.ct-email{font-size:.7rem;color:var(--lac);display:block;margin-top:.16rem;}
+
+/* BAR ASSOCIATIONS */
+#sbar{padding:0;}
+.bar-in{max-width:1360px;margin:0 auto;padding:1.4rem 1.7rem;}
+.bar-srch{display:flex;align-items:center;gap:.45rem;background:var(--bg2);border:1px solid var(--b2);border-radius:10px;padding:.48rem .95rem;max-width:400px;margin-bottom:1.4rem;}
+.bar-srch input{background:transparent;border:none;color:var(--tx);font-size:.76rem;outline:none;flex:1;}
+.bar-srch input::placeholder{color:var(--t3);}
+.bsg{margin-bottom:1.65rem;}
+.bsg-ttl{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--g);margin-bottom:.8rem;padding-bottom:.45rem;border-bottom:1px solid var(--b2);}
+.barg{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:.72rem;}
+.barc{background:var(--bg2);border:1px solid var(--b2);border-radius:12px;padding:1.05rem;transition:all .17s;cursor:pointer;}
+.barc:hover{border-color:var(--b1);transform:translateY(-2px);}
+.barc-nm{font-size:.8rem;font-weight:700;color:var(--tx);margin-bottom:.25rem;}
+.barc-loc{font-size:.64rem;color:var(--t3);margin-bottom:.55rem;}
+.barc-stats{display:flex;gap:.6rem;}
+.bcs{font-size:.62rem;color:var(--t2);}
+.bcs strong{color:var(--g);font-weight:700;}
+.barc-tp{display:inline-block;padding:.1rem .38rem;background:var(--gl);border:1px solid var(--b1);border-radius:3px;font-size:.56rem;color:var(--g);font-weight:700;margin-top:.48rem;}
+
+/* INTERNSHIPS */
+#sintern{padding:0;}
+.int-in{max-width:1360px;margin:0 auto;padding:1.4rem 1.7rem;}
+.int-filters{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.3rem;}
+.ifl{background:var(--bg2);border:1px solid var(--b2);border-radius:8px;color:var(--t2);padding:.34rem .68rem;font-size:.7rem;outline:none;}
+.ifl option{background:var(--bg2);}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.9rem;}
+.icard{background:var(--bg2);border:1px solid var(--b2);border-radius:13px;padding:1.25rem;transition:all .17s;position:relative;overflow:hidden;}
+.icard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--g),transparent);}
+.icard:hover{border-color:var(--b1);transform:translateY(-2px);}
+.ic-tp{display:inline-flex;align-items:center;gap:.22rem;padding:.1rem .42rem;border-radius:4px;font-size:.57rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.62rem;}
+.ic-tp.firm{background:rgba(91,74,232,.12);color:var(--pl);border:1px solid rgba(155,142,242,.2);}
+.ic-tp.corp{background:rgba(6,182,212,.1);color:var(--c);border:1px solid rgba(6,182,212,.18);}
+.ic-org{font-size:.85rem;font-weight:700;margin-bottom:.18rem;}
+.ic-role{font-size:.75rem;color:var(--t2);margin-bottom:.72rem;}
+.ic-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.72rem;}
+.icm{font-size:.62rem;color:var(--t3);}
+.ic-dl{font-size:.62rem;color:var(--or);font-weight:600;margin-bottom:.72rem;}
+.ic-skills{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.82rem;}
+.ic-sk{padding:.09rem .38rem;background:var(--bg3);border:1px solid var(--b2);border-radius:3px;font-size:.58rem;color:var(--t2);}
+.ic-apply{width:100%;padding:.44rem;background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;border:none;border-radius:7px;font-size:.7rem;font-weight:700;}
+
+/* DASHBOARDS */
+.db-in{max-width:1360px;margin:0 auto;padding:1.4rem 1.7rem;}
+.dbh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.65rem;}
+.dbhl h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700;}
+.dbhl p{font-size:.7rem;color:var(--t2);margin-top:.1rem;}
+.dbhr{display:flex;align-items:center;gap:.48rem;flex-wrap:wrap;}
+.livep{display:flex;align-items:center;gap:.32rem;padding:.23rem .68rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:20px;font-size:.6rem;color:var(--gr);font-weight:700;}
+.ldot{width:6px;height:6px;background:var(--gr);border-radius:50%;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.4);}}
+.pfs{display:flex;gap:.28rem;}
+.pfb{padding:.2rem .52rem;border-radius:6px;font-size:.6rem;font-weight:700;cursor:pointer;transition:all .12s;background:var(--bg2);color:var(--t2);border:1px solid var(--b2);}
+.pfb.on{color:var(--tx);border-color:var(--b1);}
+.pfb.cr.on{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.28);color:var(--re);}
+.pfb.hi.on{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.28);color:var(--or);}
+.pfb.me.on{background:rgba(234,179,8,.1);border-color:rgba(234,179,8,.28);color:var(--ye);}
+.pfb.lo.on{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.28);color:var(--gr);}
+.dbst{display:grid;grid-template-columns:repeat(5,1fr);gap:.72rem;margin-bottom:1.05rem;}
+.dst{background:var(--bg2);border:1px solid var(--b2);border-radius:11px;padding:.82rem .9rem;position:relative;overflow:hidden;}
+.dst::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:0 0 11px 11px;}
+.dst.bl::after{background:var(--c);}
+.dst.gd::after{background:var(--g);}
+.dst.gn::after{background:var(--gr);}
+.dst.pu::after{background:var(--pl);}
+.dst.rd::after{background:var(--re);}
+.dsi{font-size:1.1rem;margin-bottom:.38rem;}
+.dsv{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;font-weight:700;line-height:1;margin-bottom:.14rem;}
+.dst.bl .dsv{color:var(--c);}
+.dst.gd .dsv{color:var(--g);}
+.dst.gn .dsv{color:var(--gr);}
+.dst.pu .dsv{color:var(--pl);}
+.dst.rd .dsv{color:var(--re);}
+.dsl{font-size:.65rem;color:var(--t2);}
+.dss{font-size:.56rem;color:var(--t3);margin-top:.09rem;}
+.dbgrid{display:grid;grid-template-columns:1fr 295px;gap:1.05rem;}
+.dbm{display:flex;flex-direction:column;gap:1.05rem;}
+.dbs2{display:flex;flex-direction:column;gap:1.05rem;}
+.pnl{background:var(--bg2);border:1px solid var(--b2);border-radius:11px;overflow:hidden;}
+.pnlh{display:flex;align-items:center;justify-content:space-between;padding:.72rem 1rem;border-bottom:1px solid var(--b2);}
+.pnlh h3{font-size:.78rem;font-weight:700;}
+.ptabs{display:flex;gap:.24rem;}
+.ptab{padding:.16rem .48rem;border-radius:5px;font-size:.6rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t2);transition:all .12s;}
+.ptab.on{background:var(--gl);color:var(--g);}
+.ctbl{width:100%;border-collapse:collapse;font-size:.66rem;}
+.ctbl th{padding:.48rem .8rem;text-align:left;font-size:.56rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--b2);background:rgba(255,255,255,.012);white-space:nowrap;}
+.ctbl td{padding:.6rem .8rem;border-bottom:1px solid var(--b2);vertical-align:middle;}
+.ctbl tr:last-child td{border-bottom:none;}
+.ctbl tr:hover td{background:rgba(255,255,255,.018);}
+.cno{font-family:monospace;font-size:.62rem;color:var(--c);white-space:nowrap;}
+.ctit{font-weight:700;font-size:.7rem;}
+.cct{font-size:.57rem;color:var(--t3);margin-top:.06rem;}
+.cjg{font-size:.62rem;color:var(--t2);}
+.spl{padding:.11rem .46rem;border-radius:4px;font-size:.55rem;font-weight:700;white-space:nowrap;}
+.sp1{background:rgba(234,179,8,.1);color:var(--ye);border:1px solid rgba(234,179,8,.18);}
+.sp2{background:rgba(6,182,212,.1);color:var(--c);border:1px solid rgba(6,182,212,.18);}
+.sp4{background:rgba(155,142,242,.1);color:var(--pl);border:1px solid rgba(155,142,242,.18);}
+.sp5{background:rgba(239,68,68,.1);color:var(--re);border:1px solid rgba(239,68,68,.18);}
+.udl{padding:.43rem .75rem;display:flex;flex-direction:column;gap:.38rem;}
+.udi{display:flex;gap:.52rem;padding:.52rem .65rem;background:var(--bg3);border:1px solid var(--b2);border-radius:8px;align-items:flex-start;}
+.udic{width:25px;height:25px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0;}
+.udt{font-size:.7rem;font-weight:700;margin-bottom:.09rem;}
+.udd{font-size:.6rem;color:var(--t2);line-height:1.4;}
+.udtime{font-size:.55rem;color:var(--t3);margin-top:.17rem;}
+.mcal{padding:.72rem .88rem;}
+.mch{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;}
+.mch h4{font-size:.74rem;font-weight:700;}
+.mcnav{background:transparent;border:none;color:var(--t2);cursor:pointer;padding:.1rem .28rem;border-radius:4px;font-size:.8rem;transition:color .13s;}
+.mcnav:hover{color:var(--g);}
+.mcg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mcdn{font-size:.5rem;color:var(--t3);text-align:center;padding:.14rem;font-weight:700;}
+.mcd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:.58rem;border-radius:5px;cursor:pointer;transition:all .1s;position:relative;}
+.mcd:hover{background:var(--gl);color:var(--g);}
+.mcd.td{background:var(--gl);color:var(--g);font-weight:800;border:1px solid var(--b1);}
+.mcd.ot{color:var(--t3);}
+.mcd.hrg::after{content:'';position:absolute;bottom:1px;width:3px;height:3px;background:var(--re);border-radius:50%;}
+.mcd.hev::after{background:var(--c);}
+.evl{padding:.52rem .88rem;display:flex;flex-direction:column;gap:.32rem;}
+.evi{display:flex;align-items:center;gap:.52rem;padding:.38rem 0;border-bottom:1px solid var(--b2);}
+.evi:last-child{border-bottom:none;}
+.evd{background:var(--gl);border:1px solid var(--b1);border-radius:6px;width:29px;text-align:center;padding:.14rem;flex-shrink:0;}
+.evday{font-size:.8rem;font-weight:900;color:var(--g);line-height:1;}
+.evmon{font-size:.48rem;color:var(--t3);}
+.evttl{font-size:.68rem;font-weight:700;}
+.evsub{font-size:.58rem;color:var(--t2);margin-top:.06rem;}
+
+/* FIRM DASHBOARD (light) */
+#sfdb{background:var(--lbg);padding:0;min-height:calc(100vh - 56px);}
+.fdb-in{max-width:1360px;margin:0 auto;padding:1.4rem 1.7rem;}
+.fdb-tb{display:flex;gap:.45rem;margin-bottom:1.2rem;border-bottom:1px solid var(--lb);padding-bottom:.72rem;flex-wrap:wrap;}
+.fdbt{padding:.38rem .85rem;border-radius:7px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--lt2);transition:all .15s;}
+.fdbt.on{background:var(--lac);color:white;}
+.fdbt:hover:not(.on){background:var(--lba);color:var(--lac);}
+.fdb-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.2rem;}
+.fds{background:var(--lbg2);border:1px solid var(--lb);border-radius:11px;padding:.85rem .95rem;}
+.fds-val{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--lac);}
+.fds-lbl{font-size:.67rem;color:var(--lt2);margin-top:.12rem;}
+.fdb-grid{display:grid;grid-template-columns:1fr 305px;gap:1.05rem;}
+.lpnl{background:var(--lbg2);border:1px solid var(--lb);border-radius:11px;overflow:hidden;}
+.lpnlh{display:flex;align-items:center;justify-content:space-between;padding:.68rem .98rem;border-bottom:1px solid var(--lb);}
+.lpnlh h3{font-size:.76rem;font-weight:700;color:var(--ltx);}
+.ltbl{width:100%;border-collapse:collapse;font-size:.7rem;}
+.ltbl th{padding:.48rem .82rem;text-align:left;font-size:.58rem;font-weight:700;color:var(--lt3);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--lb);background:rgba(0,0,0,.02);white-space:nowrap;}
+.ltbl td{padding:.62rem .82rem;border-bottom:1px solid var(--lb);vertical-align:middle;color:var(--ltx);}
+.ltbl tr:last-child td{border-bottom:none;}
+.ltbl tr:hover td{background:#F0F4FF;}
+.lcl-nm{font-weight:700;font-size:.73rem;color:var(--ltx);}
+.lcl-cs{font-size:.62rem;color:var(--lt2);}
+.lcs{padding:.12rem .48px;border-radius:4px;font-size:.58rem;font-weight:700;}
+.lcs.act{background:#EFF6FF;color:#2563EB;}
+.lcs.pen{background:#FFF7ED;color:#C2410C;}
+.lcs.cld{background:#F0FDF4;color:#15803D;}
+
+/* MESSAGES */
+#smsg{height:calc(100vh - 56px);grid-template-columns:268px 1fr 250px;}
+.ic{background:var(--bg2);border-right:1px solid var(--b2);display:flex;flex-direction:column;overflow:hidden;}
+.ich{padding:.8rem 1rem;border-bottom:1px solid var(--b2);display:flex;align-items:center;justify-content:space-between;}
+.ich h3{font-size:.8rem;font-weight:700;}
+.ibtn{width:25px;height:25px;border-radius:7px;background:transparent;border:1px solid var(--b2);color:var(--t2);display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:all .13s;}
+.ibtn:hover{border-color:var(--b1);color:var(--g);}
+.isr{padding:.48rem 1rem;border-bottom:1px solid var(--b2);}
+.isrb{display:flex;align-items:center;gap:.32rem;background:var(--bg3);border:1px solid var(--b2);border-radius:7px;padding:.28rem .62rem;}
+.isrb input{background:transparent;border:none;color:var(--tx);font-size:.68rem;outline:none;flex:1;}
+.isrb input::placeholder{color:var(--t3);}
+.itabs{display:flex;padding:.42rem 1rem;gap:.24rem;border-bottom:1px solid var(--b2);}
+.itab{padding:.15rem .48rem;border-radius:6px;font-size:.6rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t2);transition:all .12s;}
+.itab.on{background:var(--gl);color:var(--g);}
+.clist{flex:1;overflow-y:auto;}
+.crow{display:flex;gap:.52rem;padding:.62rem 1rem;cursor:pointer;border-bottom:1px solid var(--b2);transition:background .1s;}
+.crow:hover{background:rgba(255,255,255,.025);}
+.crow.on{background:var(--gl);border-left:2px solid var(--g);}
+.cav2{width:33px;height:33px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.68rem;color:#fff;flex-shrink:0;}
+.ci{flex:1;min-width:0;}
+.cn{font-size:.74rem;font-weight:700;display:flex;align-items:center;gap:.26rem;margin-bottom:.1rem;}
+.cp{font-size:.64rem;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cm{display:flex;flex-direction:column;align-items:flex-end;gap:.18rem;flex-shrink:0;}
+.ct{font-size:.56rem;color:var(--t3);}
+.ub{background:var(--g);color:#050D1A;font-size:.5rem;font-weight:800;min-width:14px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 2px;}
+.cc{display:flex;flex-direction:column;overflow:hidden;}
+.chd{display:flex;align-items:center;gap:.62rem;padding:.62rem 1.1rem;border-bottom:1px solid var(--b2);background:var(--bg2);flex-shrink:0;}
+.chav{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;color:#fff;flex-shrink:0;}
+.cui{flex:1;}
+.cun{font-size:.8rem;font-weight:700;}
+.cus{font-size:.6rem;color:var(--t2);}
+.cha{display:flex;gap:.32rem;margin-left:auto;}
+.sfty{display:flex;align-items:center;gap:.38rem;padding:.42rem 1.1rem;background:rgba(91,74,232,.1);border-bottom:1px solid rgba(91,74,232,.13);font-size:.6rem;color:var(--t2);flex-shrink:0;}
+.sfty span{color:var(--pl);}
+.cmsg{flex:1;overflow-y:auto;padding:.95rem 1.1rem;display:flex;flex-direction:column;gap:.72rem;}
+.mrow{display:flex;gap:.48rem;align-items:flex-end;}
+.mrow.out{flex-direction:row-reverse;}
+.mavt{width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;color:#fff;flex-shrink:0;}
+.mb{max-width:60%;padding:.48rem .75rem;border-radius:10px;font-size:.72rem;line-height:1.5;}
+.mrow.in .mb{background:var(--bg3);border:1px solid var(--b2);border-bottom-left-radius:3px;}
+.mrow.out .mb{background:linear-gradient(135deg,#3a2270,#5a3aaa);border-bottom-right-radius:3px;}
+.mt{font-size:.54rem;color:var(--t3);margin-top:.14rem;}
+.out .mt{text-align:right;}
+.scard{margin-left:1.8rem;background:var(--bg3);border:1px solid var(--b1);border-radius:12px;padding:.78rem;max-width:80%;}
+.sch{display:flex;align-items:center;gap:.52rem;margin-bottom:.52rem;}
+.scav{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.63rem;color:#fff;flex-shrink:0;}
+.scm{flex:1;}
+.sn{font-size:.74rem;font-weight:700;}
+.sr{font-size:.6rem;color:var(--g);}
+.scbtn{padding:.23rem .64px;background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;border:none;border-radius:6px;font-size:.6rem;font-weight:800;flex-shrink:0;}
+.stgs3{display:flex;flex-wrap:wrap;gap:.2rem;margin-bottom:.38rem;}
+.stg3{padding:.08rem .34rem;background:rgba(91,74,232,.17);border:1px solid rgba(155,142,242,.17);border-radius:3px;font-size:.55rem;color:var(--pl);}
+.sbls{list-style:none;margin-bottom:.38rem;}
+.sbls li{font-size:.63rem;color:var(--t2);padding-left:.58rem;position:relative;margin-bottom:.08rem;}
+.sbls li::before{content:'•';position:absolute;left:0;color:var(--g);}
+.sft{display:flex;align-items:center;gap:.38rem;font-size:.58rem;color:var(--t3);}
+.spill{padding:.08rem .38rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.17);border-radius:10px;font-size:.57rem;color:var(--gr);font-weight:700;}
+.unavb{margin-left:1.8rem;display:flex;align-items:center;gap:.32rem;padding:.36rem .64rem;background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.15);border-radius:7px;font-size:.63rem;color:var(--or);max-width:70%;}
+.ciw{padding:.72rem 1.1rem;border-top:1px solid var(--b2);background:var(--bg2);flex-shrink:0;}
+.cib2{display:flex;align-items:center;gap:.32rem;background:var(--bg3);border:1px solid var(--b2);border-radius:10px;padding:.38rem .62rem;margin-bottom:.26rem;transition:border-color .15s;}
+.cib2:focus-within{border-color:var(--b1);}
+.cib2 input{flex:1;background:transparent;border:none;color:var(--tx);font-size:.73rem;outline:none;}
+.cib2 input::placeholder{color:var(--t3);}
+.ciacts{display:flex;gap:.22rem;align-items:center;}
+.cibtn{width:22px;height:22px;border-radius:6px;background:transparent;border:none;color:var(--t3);display:flex;align-items:center;justify-content:center;font-size:.78rem;transition:color .12s;}
+.cibtn:hover{color:var(--g);}
+.sndbtn{width:25px;height:25px;border-radius:7px;background:linear-gradient(135deg,var(--g),var(--gd));border:none;display:flex;align-items:center;justify-content:center;color:#050D1A;font-size:.73rem;}
+.tbar{display:flex;align-items:center;gap:.38rem;padding:.26rem .62rem;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.12);border-radius:7px;margin-top:.3rem;font-size:.6rem;color:var(--c);}
+.tbar select{background:transparent;border:none;color:var(--c);font-size:.6rem;outline:none;}
+.icol{background:var(--bg2);border-left:1px solid var(--b2);overflow-y:auto;padding:1.05rem;}
+.iava{width:52px;height:52px;border-radius:50%;margin:0 auto .62rem;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#fff;border:2px solid var(--b1);}
+.inm{font-size:.82rem;font-weight:700;text-align:center;}
+.isub{font-size:.62rem;color:var(--t2);text-align:center;margin-top:.14rem;}
+.iver{display:flex;align-items:center;justify-content:center;gap:.22rem;margin:.38rem 0 .75rem;padding:.18rem .6rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.17);border-radius:20px;font-size:.56rem;color:var(--gr);font-weight:700;}
+.idiv{height:1px;background:var(--b2);margin:.7rem 0;}
+.ist{font-size:.54rem;color:var(--g);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.52rem;}
+.ir{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.36rem;gap:.38rem;}
+.irk{font-size:.61rem;color:var(--t3);flex-shrink:0;}
+.irv{font-size:.61rem;color:var(--tx);font-weight:700;text-align:right;}
+.irv.g{color:var(--gr);}.irv.gold{color:var(--g);}.irv.c{color:var(--c);}
+.avs2{display:flex;align-items:center;gap:.32rem;padding:.32rem .58rem;border-radius:7px;font-size:.62rem;font-weight:600;}
+.avs2.av{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.17);color:var(--gr);}
+.avs2.bz{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.17);color:var(--re);}
+.avd{width:6px;height:6px;border-radius:50%;}
+.av .avd{background:var(--gr);}
+.bz .avd{background:var(--re);}
+
+/* REGISTER */
+#sreg{padding:0;background:var(--lbg);min-height:calc(100vh - 56px);}
+.reg-out{max-width:780px;margin:0 auto;padding:2.5rem 1.7rem;}
+.reg-hdr{text-align:center;margin-bottom:2rem;}
+.reg-hdr h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:700;color:var(--ltx);margin-bottom:.42rem;}
+.reg-hdr p{font-size:.78rem;color:var(--lt2);}
+.rpbar{height:3px;background:var(--lb);border-radius:2px;margin-bottom:1.8rem;overflow:hidden;}
+.rpbf{height:100%;background:var(--lac);border-radius:2px;transition:width .3s;}
+.reg-prog{display:flex;align-items:center;margin-bottom:2rem;}
+.rp-s{display:flex;align-items:center;flex:1;}
+.rp-n{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0;}
+.rp-n.done{background:var(--lac);color:white;}
+.rp-n.cur{background:var(--ltx);color:white;}
+.rp-n.up{background:var(--lb);color:var(--lt3);}
+.rp-lbl{font-size:.62rem;color:var(--lt2);margin-left:.35rem;white-space:nowrap;}
+.rp-line{flex:1;height:1px;background:var(--lb);margin:0 .45rem;}
+.rp-line.done{background:var(--lac);}
+.reg-card{background:var(--lbg2);border:1px solid var(--lb);border-radius:15px;padding:1.85rem;margin-bottom:1.1rem;}
+.reg-step-ttl{font-size:.95rem;font-weight:700;color:var(--ltx);margin-bottom:.12rem;}
+.reg-step-dsc{font-size:.72rem;color:var(--lt2);margin-bottom:1.4rem;}
+.rtgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;}
+.rtcard{background:var(--lbg);border:2px solid var(--lb);border-radius:12px;padding:1.2rem .95rem;text-align:center;cursor:pointer;transition:all .17s;}
+.rtcard:hover{border-color:var(--lac);background:#F0F4FF;}
+.rtcard.sel{border-color:var(--lac);background:var(--lba);}
+.rtc-ic{font-size:1.9rem;margin-bottom:.55rem;}
+.rtc-nm{font-size:.84rem;font-weight:700;color:var(--ltx);margin-bottom:.17rem;}
+.rtc-ds{font-size:.65rem;color:var(--lt2);}
+.fgrd{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1.1rem;}
+.fgrd.one{grid-template-columns:1fr;}
+.fg2{display:flex;flex-direction:column;gap:.3rem;}
+.fg2.sp2{grid-column:span 2;}
+.fg2 label{font-size:.65rem;font-weight:600;color:var(--ltx);}
+.fg2 label .req{color:var(--re);}
+.fg2 input,.fg2 select,.fg2 textarea{background:var(--lbg);border:1px solid var(--lb);border-radius:8px;color:var(--ltx);padding:.44rem .72rem;font-size:.75rem;outline:none;transition:border-color .15s;}
+.fg2 input:focus,.fg2 select:focus,.fg2 textarea:focus{border-color:var(--lac);box-shadow:0 0 0 2px rgba(79,70,229,.07);}
+.fg2 input::placeholder,.fg2 textarea::placeholder{color:var(--lt3);}
+.fg2 textarea{resize:vertical;min-height:75px;}
+.fg2 select option{background:white;}
+.fsec-ttl{font-size:.68rem;font-weight:700;color:var(--lac);text-transform:uppercase;letter-spacing:.1em;margin:1.2rem 0 .78rem;padding-bottom:.35rem;border-bottom:1px solid var(--lb);}
+.ms-wrap{background:var(--lbg);border:1px solid var(--lb);border-radius:8px;padding:.5rem;min-height:42px;margin-bottom:.5rem;}
+.ms-sel{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.4rem;}
+.ms-item{padding:.18rem .5rem;background:var(--lac);color:white;border-radius:4px;font-size:.62rem;font-weight:600;display:flex;align-items:center;gap:.24rem;cursor:pointer;}
+.ms-opts{display:flex;flex-wrap:wrap;gap:.3rem;}
+.ms-opt{padding:.15rem .5rem;background:var(--lbg2);border:1px solid var(--lb);border-radius:4px;font-size:.63rem;color:var(--lt2);cursor:pointer;transition:all .12s;}
+.ms-opt:hover,.ms-opt.on{background:var(--lba);border-color:var(--lac);color:var(--lac);}
+.bci-note{display:flex;align-items:flex-start;gap:.55rem;padding:.7rem;background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.18);border-radius:8px;margin-bottom:1.1rem;}
+.bci-note span{font-size:.7rem;color:var(--lt2);line-height:1.5;}
+.form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.1rem;}
+.fn-back{background:transparent;border:1px solid var(--lb);border-radius:8px;color:var(--lt2);padding:.44rem 1.1rem;font-size:.74rem;font-weight:600;}
+.fn-next{background:var(--lac);border:none;border-radius:8px;color:white;padding:.44rem 1.3rem;font-size:.74rem;font-weight:700;}
+.fn-next:hover{background:#3730A3;}
+
+/* PRICING */
+#sprc{padding:0;}
+.prc-in{max-width:1200px;margin:0 auto;padding:2.5rem 1.75rem;}
+.prc-hdr{text-align:center;margin-bottom:1.8rem;}
+.prc-hdr h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:700;margin-bottom:.45rem;}
+.prc-hdr p{font-size:.78rem;color:var(--t2);max-width:460px;margin:0 auto;}
+.disc{display:flex;align-items:flex-start;gap:.55rem;padding:.8rem 1.05rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.18);border-radius:10px;margin-bottom:1.8rem;}
+.disc span{font-size:.7rem;color:var(--t2);line-height:1.6;}
+.btgl{display:flex;align-items:center;gap:.65rem;justify-content:center;margin-bottom:2.3rem;}
+.btl2{font-size:.74rem;color:var(--t2);}
+.btl2.on{color:var(--g);font-weight:700;}
+.twrap{width:36px;height:20px;background:var(--b2);border-radius:10px;position:relative;cursor:pointer;transition:background .17s;border:1px solid var(--b2);}
+.twrap.on{background:rgba(212,168,75,.18);border-color:var(--b1);}
+.tknob{position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--t3);border-radius:50%;transition:transform .17s,background .17s;}
+.twrap.on .tknob{transform:translateX(16px);background:var(--g);}
+.savebdg{padding:.12rem .5rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:20px;font-size:.58rem;color:var(--gr);font-weight:700;}
+.pseg{margin-bottom:2.3rem;}
+.psegt{font-size:.62rem;text-transform:uppercase;letter-spacing:.15em;color:var(--t2);font-weight:700;margin-bottom:1.05rem;display:flex;align-items:center;gap:.62rem;}
+.psegt::after{content:'';flex:1;height:1px;background:var(--b2);}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(182px,1fr));gap:.85rem;}
+.pc2{background:var(--bg2);border:1px solid var(--b2);border-radius:14px;padding:1.38rem;position:relative;transition:all .17s;}
+.pc2:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.28);}
+.pc2.ft{border-color:var(--b1);box-shadow:0 0 20px rgba(212,168,75,.1);}
+.pctop{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--g),var(--gd));color:#050D1A;font-size:.54rem;font-weight:900;padding:.13rem .58rem;border-radius:0 0 7px 7px;letter-spacing:.06em;white-space:nowrap;}
+.pci{font-size:1.2rem;margin-bottom:.52rem;}
+.pcn{font-size:.84rem;font-weight:700;margin-bottom:.15rem;}
+.pcw{font-size:.62rem;color:var(--t3);margin-bottom:.72rem;}
+.pcp{margin-bottom:.88rem;}
+.pca{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--g);line-height:1;}
+.pccu{font-size:.78rem;color:var(--g);vertical-align:top;margin-top:.14rem;display:inline-block;}
+.pcper{font-size:.65rem;color:var(--t2);margin-top:.09rem;}
+.pcf{list-style:none;margin-bottom:1.05rem;display:flex;flex-direction:column;gap:.33rem;}
+.pcf li{font-size:.68rem;color:var(--t2);display:flex;align-items:flex-start;gap:.33rem;line-height:1.4;}
+.pcf li::before{content:'✓';color:var(--g);font-weight:800;flex-shrink:0;}
+
+/* ABOUT */
+#sabt{padding:0;}
+.abt-in{max-width:980px;margin:0 auto;padding:2.8rem 1.7rem;}
+.bcicrd{background:linear-gradient(135deg,rgba(91,74,232,.12),rgba(7,15,30,.9));border:1px solid rgba(155,142,242,.24);border-radius:20px;padding:2.6rem;text-align:center;position:relative;overflow:hidden;}
+.bcicrd::before{content:'⚖️';position:absolute;font-size:11rem;opacity:.025;right:-2rem;top:-1.5rem;pointer-events:none;}
+.bciemb{width:68px;height:68px;border-radius:50%;background:var(--gl);border:2px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1.25rem;box-shadow:0 0 18px rgba(212,168,75,.18);}
+.bcicrd h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.75rem;font-weight:700;margin-bottom:.82rem;}
+.bcicrd>p{font-size:.8rem;color:var(--t2);max-width:510px;margin:0 auto 1.6rem;line-height:1.75;}
+.bcist{display:flex;justify-content:center;gap:2.6rem;flex-wrap:wrap;margin-bottom:1.6rem;}
+.bcsv{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--g);}
+.bcsl{font-size:.65rem;color:var(--t2);margin-top:.18rem;}
+.bciperks{display:grid;grid-template-columns:repeat(auto-fit,minmax(182px,1fr));gap:.68rem;text-align:left;margin-top:1.6rem;}
+.bcip{background:rgba(255,255,255,.026);border:1px solid var(--b2);border-radius:10px;padding:.72rem .88rem;display:flex;gap:.52rem;align-items:flex-start;}
+.bcipi{font-size:.9rem;flex-shrink:0;}
+.bcipn{font-size:.72rem;font-weight:700;margin-bottom:.14rem;}
+.bcipdesc{font-size:.63rem;color:var(--t2);line-height:1.5;}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,.42);border-top:1px solid var(--b2);padding:2.4rem 2rem 1.35rem;position:relative;z-index:1;}
+.fi2{max-width:1200px;margin:0 auto;}
+.ft2{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:1.5rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--b2);}
+.fb2 p{font-size:.7rem;color:var(--t2);margin-top:.6rem;line-height:1.65;max-width:230px;}
+.fcol h4{font-size:.63rem;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.7rem;}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;}
+.fcol ul li a{font-size:.7rem;color:var(--t2);cursor:pointer;transition:color .14s;}
+.fcol ul li a:hover{color:var(--g);}
+.fbot{display:flex;justify-content:space-between;align-items:center;font-size:.61rem;color:var(--t3);flex-wrap:wrap;gap:.38rem;}
+.fbot a{color:var(--t3);cursor:pointer;}.fbot a:hover{color:var(--g);}
+.fdiscl{font-size:.6rem;color:var(--t3);background:rgba(255,255,255,.03);border:1px solid var(--b2);border-radius:8px;padding:.55rem .8rem;margin-top:.9rem;line-height:1.6;}
+
+@media(max-width:900px){
+.hero-split{grid-template-columns:1fr;}.hs-divider{display:none;}
+.dlayout,#firms-dir,.fp-body,.dbgrid,.fdb-grid{grid-template-columns:1fr;}
+.fp,.firms-filter,.fp-sidenav{position:static;}
+.dbst,.fdb-stats{grid-template-columns:repeat(2,1fr);}
+.ft2{grid-template-columns:1fr 1fr;}
+.nl{display:none;}
+#smsg.on{grid-template-columns:1fr;}
+.ic,.icol{display:none;}
+.fgrd{grid-template-columns:1fr;}
+.fg2.sp2{grid-column:span 1;}
+.rtgrid{grid-template-columns:1fr;}
+.stats-strip{grid-template-columns:repeat(2,1fr);}
+}
+
+/* Sample-data disclaimer */
+.mvp-bar{position:fixed;left:0;right:0;bottom:0;z-index:300;display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;
+  padding:.45rem 1rem;background:linear-gradient(90deg,#3b2a0a,#5b4ae8 140%);border-top:1px solid rgba(212,168,75,.45);
+  color:#f3e6c4;font-size:.72rem;line-height:1.45;text-align:center}
+.mvp-bar b{color:#D4A84B;letter-spacing:.08em;text-transform:uppercase;font-size:.62rem;border:1px solid rgba(212,168,75,.6);border-radius:20px;padding:.1rem .5rem}
+.mvp-bar button{background:none;border:0;color:#D4A84B;text-decoration:underline;cursor:pointer;font:inherit}
+.mvp-modal{position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;padding:1.2rem;background:rgba(4,8,18,.78);backdrop-filter:blur(4px)}
+.mvp-modal.open{display:flex}
+.mvp-card{max-width:520px;background:#0b1428;border:1px solid rgba(212,168,75,.45);border-radius:16px;padding:1.6rem 1.6rem 1.3rem;color:#e8e2d0;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.mvp-card h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:#D4A84B;margin-bottom:.6rem}
+.mvp-card p{font-size:.82rem;line-height:1.7;color:#cfc7b2;margin-bottom:.7rem}
+.mvp-card .btn{margin-top:.4rem}
+body{padding-bottom:64px}
+@media (max-width:760px){nav .bci-nav,nav .btn-reg,nav .nr .btn.bg{display:none}.mvp-bar{font-size:.64rem;padding:.35rem .7rem}.mvp-bar span{display:none}.mvp-bar::after{content:"None of the data on this site is real. Sample data for testing only.";}}
+.sample-tag{display:inline-block;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D4A84B;border:1px dashed rgba(212,168,75,.55);border-radius:20px;padding:.08rem .45rem}
+.venture{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#D4A84B;opacity:.9}
+</style>
+</head>
+<body>
+<div class="mvp-bar" role="note"><b>Preview · Sample data</b><span>This is a preview with representative sample data for testing purposes only. None of the data on this site is accurate or real: every advocate, firm, case, judge, organisation, figure and fee shown is fictional.</span><button type="button" onclick="openNotice()">Read more</button></div>
+<div class="mvp-modal" id="mvp-modal" role="dialog" aria-modal="true" aria-labelledby="mvp-h">
+  <div class="mvp-card">
+    <h2 id="mvp-h">A preview, not a service</h2>
+    <p>The Akashic Records is a legal-intelligence platform in development: a Terratales venture. This site shows how it will look and work.</p>
+    <p><strong>None of the data here is accurate or real.</strong> Every advocate, law firm, case, judge, court listing, organisation,
+      statistic, rating and fee is representative sample data for testing purposes only. Nothing here is legal advice, an endorsement or
+      an offer of services, and no messages, registrations or bookings are sent anywhere.</p>
+    <button class="btn bg" type="button" onclick="closeNotice()">I understand: explore the preview</button>
+  </div>
+</div>
+<canvas id="sf"></canvas>
+<nav>
+  <div class="logo" onclick="goNav('home')">
+    <svg viewBox="0 0 80 80" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="36" fill="none" stroke="#D4A84B" stroke-width="1.2" opacity=".5"/>
+      <circle cx="40" cy="40" r="29" fill="none" stroke="#D4A84B" stroke-width=".5" opacity=".2" stroke-dasharray="4 6"/>
+      <line x1="22" y1="36" x2="58" y2="36" stroke="#D4A84B" stroke-width="1.7" stroke-linecap="round"/>
+      <line x1="40" y1="26" x2="40" y2="53" stroke="#D4A84B" stroke-width="1.7" stroke-linecap="round"/>
+      <line x1="24" y1="36" x2="20" y2="43" stroke="#D4A84B" stroke-width="1.1"/><line x1="24" y1="36" x2="28" y2="43" stroke="#D4A84B" stroke-width="1.1"/>
+      <line x1="56" y1="36" x2="52" y2="43" stroke="#D4A84B" stroke-width="1.1"/><line x1="56" y1="36" x2="60" y2="43" stroke="#D4A84B" stroke-width="1.1"/>
+      <path d="M18 43 Q24 48 30 43" fill="none" stroke="#D4A84B" stroke-width="1.4"/>
+      <path d="M50 43 Q56 48 62 43" fill="none" stroke="#D4A84B" stroke-width="1.4"/>
+      <circle cx="40" cy="25" r="2.6" fill="#D4A84B" opacity=".9"/>
+      <circle cx="10" cy="13" r="1.7" fill="#D4A84B"/><circle cx="70" cy="13" r="1.7" fill="#D4A84B"/>
+      <circle cx="6" cy="40" r="1.1" fill="#D4A84B" opacity=".6"/><circle cx="74" cy="40" r="1.1" fill="#D4A84B" opacity=".6"/>
+      <circle cx="15" cy="66" r="1.4" fill="#D4A84B"/><circle cx="65" cy="66" r="1.4" fill="#D4A84B"/>
+      <circle cx="40" cy="72" r="1.7" fill="#D4A84B"/>
+      <line x1="10" y1="13" x2="40" y2="25" stroke="#D4A84B" stroke-width=".45" opacity=".18"/>
+      <line x1="70" y1="13" x2="40" y2="25" stroke="#D4A84B" stroke-width=".45" opacity=".18"/>
+      <line x1="15" y1="66" x2="40" y2="53" stroke="#D4A84B" stroke-width=".45" opacity=".18"/>
+      <line x1="65" y1="66" x2="40" y2="53" stroke="#D4A84B" stroke-width=".45" opacity=".18"/>
+    </svg>
+    <div class="ltx2"><span class="lnm">The Akashic Records</span><span class="ltag">A Terratales Venture · Preview</span></div>
+  </div>
+  <ul class="nl">
+    <li><a id="nl-home" class="on" onclick="goNav('home')">Home</a></li>
+    <li><a id="nl-dir" onclick="goNav('dir')">Find a Lawyer</a></li>
+    <li><a id="nl-firms" onclick="goNav('firms')">Law Firms</a></li>
+    <li><a id="nl-bar" onclick="goNav('bar')">Bar Associations</a></li>
+    <li><a id="nl-intern" onclick="goNav('intern')">Internships</a></li>
+    <li class="ddw"><a id="nl-db" onclick="toggleDD()">Dashboard ▾</a>
+      <div class="ddm" id="dbdd">
+        <div class="ddi" onclick="goNav('cdb')">⚖️ Client Dashboard</div>
+        <div class="ddi" onclick="goNav('fdb')">🏢 Firm & Lawyer Dashboard</div>
+        <div class="ddi" onclick="goNav('msg')">💬 Messages</div>
+      </div>
+    </li>
+    <li><a id="nl-abt" onclick="goNav('abt')">About</a></li>
+  </ul>
+  <div class="nr">
+    <div class="lswrap">
+      <button class="lsbtn" onclick="toggleLD()">🌐 <span id="cur-lang">EN</span> ▾</button>
+      <div class="lsdrop" id="ld"><div class="ldsrch"><input type="text" placeholder="Search language..." oninput="filterL(this.value)" id="lsrch"/></div><div id="llist"></div></div>
+    </div>
+    <div class="bci-nav">◆ Sample data</div>
+    <button class="btn btn-reg" onclick="goNav('reg')">Register</button>
+    <button class="btn bg2" onclick="toggleLogin()" id="loginbtn">Sign In</button>
+    <button class="btn bg" onclick="goNav('abt')">About the preview →</button>
+  </div>
+</nav>
+
+<main>
+<!-- ========== HOME ========== -->
+<section id="shome" class="sec on">
+  <!-- SPLIT HERO -->
+  <div class="hero-split">
+    <div class="hs-divider"></div>
+    <!-- LEFT: Find a Lawyer -->
+    <div class="hs-pane hs-left">
+      <div style="max-width:440px;">
+        <div class="hs-label">I'm looking for a lawyer</div>
+        <h1 class="hs-title cg">Find a<br><span class="hs-acc">Lawyer</span></h1>
+        <p class="hs-desc">Search advocates by expertise, court, city or language across India. Sample profiles shown.</p>
+        <div class="hs-bar">
+          <div class="hs-row">
+            <select class="hs-sel"><option>All Areas</option><option>Constitutional Law</option><option>Criminal Defense</option><option>Corporate / M&A</option><option>Family Law</option><option>IP & Patents</option><option>Insolvency / IBC</option><option>Tax & GST</option><option>Real Estate / RERA</option></select>
+            <select class="hs-sel"><option>All India</option><option>Delhi (NCT)</option><option>Maharashtra</option><option>Karnataka</option><option>Tamil Nadu</option><option>West Bengal</option><option>Gujarat</option><option>Telangana</option><option>Uttar Pradesh</option></select>
+          </div>
+          <div class="hs-row">
+            <input class="hs-inp" type="text" placeholder="Name, expertise, enrollment number, court..."/>
+            <button class="hs-go" onclick="goNav('dir')">🔍 Search</button>
+          </div>
+        </div>
+        <div class="hs-chips">
+          <span class="hchip" onclick="goNav('dir')">Supreme Court</span>
+          <span class="hchip" onclick="goNav('dir')">Criminal</span>
+          <span class="hchip" onclick="goNav('dir')">PIL</span>
+          <span class="hchip" onclick="goNav('dir')">Divorce</span>
+          <span class="hchip" onclick="goNav('dir')">Corporate</span>
+          <span class="hchip" onclick="goNav('dir')">NCLT / IBC</span>
+        </div>
+        <button class="hs-cta" onclick="goNav('dir')">Browse All Lawyers →</button>
+      </div>
+    </div>
+    <!-- RIGHT: Find a Law Firm -->
+    <div class="hs-pane hs-right">
+      <div style="max-width:440px;">
+        <div class="hs-label hs-label-r">I'm looking for a law firm</div>
+        <h1 class="hs-title cg">Find a<br><span class="hs-acc-r">Law Firm</span></h1>
+        <p class="hs-desc">Law firms by practice area and city, with their lawyers and offices. Sample firms shown.</p>
+        <div class="hs-bar">
+          <div class="hs-row">
+            <select class="hs-sel"><option>All Practice Areas</option><option>Corporate & M&A</option><option>Banking & Finance</option><option>Dispute Resolution</option><option>IP & Technology</option><option>Restructuring / IBC</option><option>Real Estate</option><option>Tax</option></select>
+            <div class="ng-mini">
+              <button class="ngm on" onclick="this.classList.add('on');this.nextElementSibling.classList.remove('on')">National</button>
+              <button class="ngm" onclick="this.classList.add('on');this.previousElementSibling.classList.remove('on')">Global</button>
+            </div>
+          </div>
+          <div class="hs-row">
+            <input class="hs-inp hs-inp-r" type="text" placeholder="Firm name, practice area, city..."/>
+            <button class="hs-go hs-go-r" onclick="goNav('firms')">🔍 Search</button>
+          </div>
+        </div>
+        <div class="hs-chips">
+          <span class="hchip hchip-r" onclick="goNav('firms')">Dispute Resolution</span>
+          <span class="hchip hchip-r" onclick="goNav('firms')">Tax</span>
+          <span class="hchip hchip-r" onclick="goNav('firms')">Mumbai</span>
+          <span class="hchip hchip-r" onclick="goNav('firms')">Delhi NCR</span>
+          <span class="hchip hchip-r" onclick="goNav('firms')">Bengaluru</span>
+          <span class="hchip hchip-r" onclick="goNav('firms')">M&A</span>
+        </div>
+        <button class="hs-cta hs-cta-r" onclick="goNav('firms')">Browse All Firms →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BELOW FOLD -->
+  <div class="bfold">
+    <div class="stats-strip">
+      <div class="sst"><span class="sstv">6</span><span class="sstl">Sample advocates</span></div>
+      <div class="sst"><span class="sstv">6</span><span class="sstl">Sample law firms</span></div>
+      <div class="sst"><span class="sstv">5</span><span class="sstl">Sample cases tracked</span></div>
+      <div class="sst"><span class="sstv">23</span><span class="sstl">Languages planned</span></div>
+    </div>
+    <div class="trust-strip">
+      <div class="tit">🔐 Verified profiles (planned)</div>
+      <div class="tit">⚖️ One profile per advocate</div>
+      <div class="tit">📡 Court updates (planned)</div>
+      <div class="tit">🔒 Discovery only, no solicitation</div>
+      <div class="tit">🌐 23 languages (planned)</div>
+      <div class="tit">🎓 Law internships</div>
+    </div>
+    <div class="feats-sec">
+      <div class="sec-hd"><div class="sec-lbl">Platform Features</div><h2 class="sec-ttl cg">Everything Legal, In One Place</h2><p class="sec-dsc">What the platform is being built to do. Every feature below is shown with sample data.</p></div>
+      <div class="fgrid">
+        <div class="fc"><div class="fic">⚖️</div><h3>Advocate Directory</h3><p>Advocates searchable by expertise, court, city and language, with one profile per advocate.</p><span class="ftag">DIRECTORY</span></div>
+        <div class="fc"><div class="fic">🎯</div><h3>AI Compatibility Score</h3><p>Suggests advocates whose expertise, court and languages fit your matter. Shown here with sample scores.</p><span class="ftag">PREVIEW</span></div>
+        <div class="fc"><div class="fic">📡</div><h3>Live Case Tracking</h3><p>Hearing dates, orders and status for your matters across courts and tribunals, in one dashboard.</p><span class="ftag">PLANNED</span></div>
+        <div class="fc"><div class="fic">💬</div><h3>Secure Messaging</h3><p>Contact advocates on the platform, share files and translate messages between Indian languages.</p><span class="ftag">PLANNED</span></div>
+        <div class="fc"><div class="fic">🏛️</div><h3>Law Firms Directory</h3><p>Firm profiles by practice area and city, with their lawyers, offices and contact details.</p><span class="ftag">DIRECTORY</span></div>
+        <div class="fc"><div class="fic">🏢</div><h3>Bar Associations</h3><p>A directory of bar associations by state, court and city.</p><span class="ftag">DIRECTORY</span></div>
+        <div class="fc"><div class="fic">📅</div><h3>Smart Calendar</h3><p>Automated reminders for hearings, appearances and filing deadlines. Syncs with Google Calendar and iCal.</p><span class="ftag">AUTO-SYNC</span></div>
+        <div class="fc"><div class="fic">🎓</div><h3>Law Internships</h3><p>Internship listings at law firms and corporate legal departments, for law students across India.</p><span class="ftag">FOR STUDENTS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FIND A LAWYER ========== -->
+<section id="sdir" class="sec">
+  <div class="sphdr"><div class="sphdr-in"><div><h2>Find a Lawyer</h2><p id="login-note">Browse sample advocate profiles · <span style="color:var(--g);cursor:pointer;" onclick="toggleLogin()">Sign in</span> to unlock compatibility scores & full profiles</p></div><div style="display:flex;gap:.5rem;align-items:center;"><div class="msrch"><span style="font-size:.75rem;color:var(--t3)">🔍</span><input type="text" placeholder="Name, enrollment, city..."/></div><select class="ssel"><option>Sort: Relevance</option><option>Sort: Experience</option><option>Sort: Languages</option><option>Sort: Fee (Low–High)</option></select></div></div></div>
+  <div class="dir-in">
+    <div class="dlayout">
+      <div class="fp"><div class="fph"><h3>🔧 Filters</h3><button class="frst">Reset</button></div>
+        <div class="fg"><label>Practice Area</label><select class="fsel"><option>All Areas</option><option>Constitutional Law</option><option>Criminal Defense</option><option>Corporate / M&A</option><option>Family Law</option><option>IP & Patents</option><option>Insolvency / IBC</option><option>Tax & GST</option></select></div>
+        <div class="fg"><label>Court / Jurisdiction</label><select class="fsel"><option>All Courts</option><option>Supreme Court</option><option>Bombay High Court</option><option>Delhi High Court</option><option>Madras High Court</option><option>Calcutta High Court</option><option>NCLT / NCLAT</option><option>NGT</option><option>RERA</option></select></div>
+        <div class="fg"><label>State / City</label><select class="fsel"><option>All India</option><option>New Delhi</option><option>Mumbai</option><option>Chennai</option><option>Kolkata</option><option>Bengaluru</option><option>Hyderabad</option></select></div>
+        <div class="fg"><label>Min. Experience: <span id="expv">5</span>+ yrs</label><input type="range" class="rng" min="0" max="30" value="5" oninput="document.getElementById('expv').textContent=this.value"/></div>
+        <div class="fg"><label>Bar Association</label><select class="fsel"><option>Any</option><option>Sample Apex Bar</option><option>Sample High Court Bar, Delhi</option><option>Sample High Court Bar, Mumbai</option><option>Sample High Court Bar, Chennai</option><option>Sample District Bar, Bengaluru</option></select></div>
+        <div class="fg"><label>Languages</label><div class="tcloud"><span class="fch on">English</span><span class="fch">Hindi</span><span class="fch">Tamil</span><span class="fch">Marathi</span><span class="fch">Bengali</span><span class="fch">Kannada</span><span class="fch">Telugu</span><span class="fch">Gujarati</span><span class="fch">Urdu</span></div></div>
+        <div class="fg"><label>Priority</label><div class="tcloud"><span class="fch on pcc">🔴 Critical</span><span class="fch on pch">🟠 High</span><span class="fch pcm">🟡 Medium</span><span class="fch pcl">🟢 Low</span></div></div>
+        <button class="fapply">Apply Filters</button>
+      </div>
+      <div><div class="lgrid" id="lgrid"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LAW FIRMS ========== -->
+<section id="sfirms" class="sec">
+  <div class="fh"><div class="fh-in"><div><h2>Law Firms Directory</h2><p>Law firms across India by practice area and city · <span class="sample-tag">sample firms</span></p></div><div class="fsrch"><span style="font-size:.8rem;color:var(--lt3)">🔍</span><input type="text" placeholder="Search firms..."/></div></div></div>
+  <div id="firms-dir">
+    <div class="firms-filter">
+            <div class="fft">Practice Focus</div>
+      <label class="ffcheck"><input type="checkbox"/><span>Corporate & M&A</span></label>
+      <label class="ffcheck"><input type="checkbox"/><span>Dispute Resolution</span></label>
+      <label class="ffcheck"><input type="checkbox"/><span>Banking & Finance</span></label>
+      <label class="ffcheck"><input type="checkbox"/><span>Restructuring</span></label>
+    </div>
+    <div>
+      <div class="ng-tog"><button class="ng-b on">National</button><button class="ng-b">Global</button></div>
+      <div class="firm-list" id="firm-list"></div>
+    </div>
+  </div>
+  <div id="firms-profile">
+    <div class="fp-hdr"><div class="fp-hdr-in">
+      <div class="fp-bc">🏠 › <span class="bc-lnk" onclick="showFirmsDir()">Law Firms</span> › <span class="bc-lnk" onclick="showFirmsDir()">India</span> › <span id="fp-bc-nm"></span></div>
+      <div class="fp-brand"><div class="fp-logo2" id="fp-logo"></div><div><div class="fp-nm" id="fp-name"></div><div class="fp-web" id="fp-web"></div></div></div>
+    </div></div>
+    <div class="fp-body">
+      <div class="fp-sidenav">
+        <select class="fp-csel"><option>India</option><option>National</option><option>Global</option></select>
+        <a class="fp-nav on" onclick="switchFirmTab('areas')">Practice areas</a>
+        <a class="fp-nav" onclick="switchFirmTab('about')">About</a>
+        <a class="fp-nav" onclick="switchFirmTab('lawyers')">Lawyers</a>
+        <a class="fp-nav" onclick="switchFirmTab('guides')">Insights</a>
+        <a class="fp-nav" onclick="switchFirmTab('contact')">Contact</a>
+      </div>
+      <div id="fp-content"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BAR ASSOCIATIONS ========== -->
+<section id="sbar" class="sec">
+  <div class="sphdr"><div class="sphdr-in"><div><h2>Bar Associations</h2><p>Bar associations by state, court and city · <span class="sample-tag">sample entries</span></p></div></div></div>
+  <div class="bar-in"><div class="bar-srch"><span style="font-size:.8rem;color:var(--t3)">🔍</span><input type="text" placeholder="Search bar associations..."/></div><div id="bar-list"></div></div>
+</section>
+
+<!-- ========== INTERNSHIPS ========== -->
+<section id="sintern" class="sec">
+  <div class="sphdr"><div class="sphdr-in"><div><h2>Law Internships</h2><p>For law students: firms and corporate legal departments · <span class="sample-tag">sample listings</span></p></div></div></div>
+  <div class="int-in">
+    <div class="int-filters">
+      <select class="ifl"><option>All Types</option><option>Law Firm</option><option>Corporate</option></select>
+      <select class="ifl"><option>All Cities</option><option>Mumbai</option><option>New Delhi</option><option>Bengaluru</option><option>Chennai</option><option>Hyderabad</option></select>
+      <select class="ifl"><option>All Areas</option><option>Corporate / M&A</option><option>Litigation</option><option>IP & Tech</option><option>Tax</option><option>Compliance</option></select>
+      <select class="ifl"><option>Any Duration</option><option>4–6 Weeks</option><option>2 Months</option><option>3 Months</option><option>6 Months</option></select>
+    </div>
+    <div class="igrid" id="intern-grid"></div>
+  </div>
+</section>
+
+<!-- ========== CLIENT DASHBOARD ========== -->
+<section id="scdb" class="sec">
+  <div class="sphdr"><div class="sphdr-in"><div><h2>Case Tracking Dashboard</h2><p>How case tracking will work · <span class="sample-tag">sample cases</span></p></div><div class="dbhr"><div class="livep"><div class="ldot"></div>DEMO</div><div class="pfs"><button class="pfb cr on" onclick="this.classList.toggle('on')">🔴 Critical (2)</button><button class="pfb hi on" onclick="this.classList.toggle('on')">🟠 High (1)</button><button class="pfb me on" onclick="this.classList.toggle('on')">🟡 Medium (2)</button><button class="pfb lo">🟢 Low</button></div><button class="btn bg2" style="font-size:.67rem;padding:.28rem .72rem;">Export PDF</button></div></div></div>
+  <div class="db-in">
+    <div class="dbst">
+      <div class="dst bl"><div class="dsi">⚖️</div><div class="dsv">5</div><div class="dsl">Active Cases</div><div class="dss">+1 this month</div></div>
+      <div class="dst gd"><div class="dsi">📅</div><div class="dsv">3</div><div class="dsl">Hearings This Week</div><div class="dss">Next: 14 Jun</div></div>
+      <div class="dst gn"><div class="dsi">✅</div><div class="dsv">12</div><div class="dsl">Cases Disposed</div><div class="dss">YTD 2026</div></div>
+      <div class="dst pu"><div class="dsi">📜</div><div class="dsv">8</div><div class="dsl">Pending Orders</div><div class="dss">2 critical</div></div>
+      <div class="dst rd"><div class="dsi">🚨</div><div class="dsv">2</div><div class="dsl">Critical Priority</div><div class="dss">Action needed</div></div>
+    </div>
+    <div class="dbgrid">
+      <div class="dbm">
+        <div class="pnl"><div class="pnlh"><h3>Live Case Tracker</h3><div class="ptabs"><button class="ptab on">All</button><button class="ptab">Active</button><button class="ptab">Disposed</button></div></div><div style="overflow-x:auto;"><table class="ctbl" id="ctbl"></table></div></div>
+        <div class="pnl"><div class="pnlh"><h3>Latest Court Orders & Updates</h3><div class="ptabs"><button class="ptab on">All</button><button class="ptab">Orders</button><button class="ptab">Hearings</button></div></div><div class="udl" id="udl"></div></div>
+      </div>
+      <div class="dbs2">
+        <div class="pnl"><div class="pnlh"><h3>Court Calendar</h3></div><div class="mcal" id="mcal"></div><div style="padding:.42rem .88rem;border-top:1px solid var(--b2);display:flex;gap:.75rem;"><span style="display:flex;align-items:center;gap:.26rem;font-size:.58rem;color:var(--t3);"><span style="width:6px;height:6px;background:var(--re);border-radius:50%;display:inline-block;"></span>Hearing</span><span style="display:flex;align-items:center;gap:.26rem;font-size:.58rem;color:var(--t3);"><span style="width:6px;height:6px;background:var(--c);border-radius:50%;display:inline-block;"></span>Deadline</span></div><div class="evl" id="evl"></div></div>
+        <div class="pnl"><div class="pnlh"><h3>Presiding Judges</h3></div><div style="padding:.65rem .88rem;display:flex;flex-direction:column;gap:.48rem;" id="judgesl"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FIRM/LAWYER DASHBOARD ========== -->
+<section id="sfdb" class="sec">
+  <div style="background:var(--lbg2);border-bottom:1px solid var(--lb);padding:1.3rem 2rem;">
+    <div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;">
+      <div><h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700;color:var(--ltx);">Firm & Lawyer Dashboard</h2><p style="font-size:.7rem;color:var(--lt2);margin-top:.1rem;">Manage clients, cases and team — all in one place · <span class="sample-tag">sample firm</span></p></div>
+      <div style="display:flex;gap:.45rem;"><button class="btn" style="background:var(--lac);color:white;border:none;">+ New Client</button><button class="btn" style="background:transparent;color:var(--lt2);border:1px solid var(--lb);">Export Report</button></div>
+    </div>
+  </div>
+  <div class="fdb-in">
+    <div class="fdb-tb"><button class="fdbt on" onclick="switchFDB('overview',this)">Overview</button><button class="fdbt" onclick="switchFDB('clients',this)">Clients</button><button class="fdbt" onclick="switchFDB('cases',this)">Cases</button><button class="fdbt" onclick="switchFDB('messages',this)">Messages</button><button class="fdbt" onclick="switchFDB('billing',this)">Billing</button><button class="fdbt" onclick="switchFDB('team',this)">Team</button></div>
+    <div id="fdb-content"></div>
+  </div>
+</section>
+
+<!-- ========== MESSAGES ========== -->
+<section id="smsg" class="msec">
+  <div class="ic">
+    <div class="ich"><h3>Messages</h3><div style="display:flex;gap:.26rem;"><button class="ibtn">✉</button><button class="ibtn">⚙</button></div></div>
+    <div class="isr"><div class="isrb"><span style="font-size:.72rem;color:var(--t3)">🔍</span><input type="text" placeholder="Search conversations..."/></div></div>
+    <div class="itabs"><button class="itab on">All</button><button class="itab">Lawyers</button><button class="itab">Firms</button><button class="itab">AI</button></div>
+    <div class="clist" id="clist"></div>
+  </div>
+  <div class="cc">
+    <div class="chd"><div class="chav" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);">PK</div><div class="cui"><div class="cun">Adv. Priya Krishnamurthy</div><div class="cus">Sample profile · Supreme Court · Last seen 12 min ago</div></div><div class="cha"><button class="ibtn">📎</button><button class="ibtn">📅</button><button class="ibtn">⭐</button><button class="ibtn">⋯</button></div></div>
+    <div class="sfty"><span>◆</span><span>Preview conversation.</span> These messages are sample data; nothing you type is sent.</div>
+    <div class="cmsg" id="cmsg"></div>
+    <div class="ciw">
+      <div class="cib2"><input type="text" placeholder="Type your message..." id="cinp" oninput="document.getElementById('ccc').textContent=this.value.length+'/2500'"/><div class="ciacts"><button class="cibtn">😊</button><button class="cibtn">📎</button><button class="cibtn">📁</button><button class="sndbtn">➤</button></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.26rem;">
+        <div class="tbar">🌐 Translate to: <select><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Urdu</option><option>English</option></select></div>
+        <span style="font-size:.54rem;color:var(--t3);" id="ccc">0/2500</span>
+      </div>
+    </div>
+  </div>
+  <div class="icol">
+    <div class="iava" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);">PK</div>
+    <div class="inm">Adv. Priya Krishnamurthy</div><div class="isub">Supreme Court of India · New Delhi</div>
+    <div class="iver">Sample profile · SAMPLE-0001</div>
+    <div class="avs2 av"><div class="avd"></div>Available Now</div>
+    <div class="idiv"></div>
+    <div class="ist">About</div>
+    <div class="ir"><span class="irk">Enrolled</span><span class="irv">2005 (19 yrs)</span></div>
+    <div class="ir"><span class="irk">Court</span><span class="irv">Supreme Court</span></div>
+    <div class="ir"><span class="irk">Expertise</span><span class="irv c">Constitutional, PIL</span></div>
+    <div class="idiv"></div>
+        <div class="ist">Performance</div>
+    <div class="ir"><span class="irk">Cases Won</span><span class="irv g">234</span></div>
+    <div class="ir"><span class="irk">Win Rate</span><span class="irv g">75%</span></div>
+    <div class="ir"><span class="irk">Rating</span><span class="irv gold">4.9 ★</span></div>
+    <div class="idiv"></div>
+    <div class="ist">Languages</div>
+    <div style="display:flex;flex-wrap:wrap;gap:.24rem;margin-bottom:.78rem;"><span class="lngtag">English</span><span class="lngtag">Hindi</span><span class="lngtag">Tamil</span></div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.78rem;">
+      <button class="btn bg" style="width:100%;padding:.5rem;font-size:.72rem;">Book Consultation</button>
+      <button class="btn bg2" style="width:100%;padding:.5rem;font-size:.72rem;">Full Profile</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REGISTER ========== -->
+<section id="sreg" class="sec">
+  <div class="reg-out">
+    <div class="reg-hdr"><h2 class="cg">Join The Akashic Records</h2><p>Register as a lawyer, law firm, or student. This preview form does not send or store anything.</p></div>
+    <div class="rpbar"><div class="rpbf" id="rpbf" style="width:16%"></div></div>
+    <div class="reg-prog" id="reg-prog"></div>
+    <div id="reg-form-area"></div>
+  </div>
+</section>
+
+
+<!-- ========== ABOUT ========== -->
+<section id="sabt" class="sec">
+  <div class="abt-in">
+    <div class="bcicrd">
+      <div class="venture">A Terratales Venture</div>
+      <h2 class="cg">Legal intelligence,<br><span style="color:var(--g);">in every Indian language</span></h2>
+      <p>Named for the mythic library of all knowledge, The Akashic Records is a separately branded venture under the Terratales aegis: a legal-intelligence platform being built to connect India's citizens with the right legal counsel, in every Indian language.</p>
+      <div class="bciperks">
+        <div class="bcip"><div class="bcipi">⚖️</div><div><div class="bcipn">Advocate directory</div><div class="bcipdesc">Search advocates by expertise, court, city and language.</div></div></div>
+        <div class="bcip"><div class="bcipi">📡</div><div><div class="bcipn">Case tracking</div><div class="bcipdesc">Hearings, orders and deadlines for your matters in one dashboard.</div></div></div>
+        <div class="bcip"><div class="bcipi">🎯</div><div><div class="bcipn">Lawyer matching</div><div class="bcipdesc">AI-assisted suggestions for advocates who fit your matter.</div></div></div>
+        <div class="bcip"><div class="bcipi">🏛️</div><div><div class="bcipn">Firms &amp; bar associations</div><div class="bcipdesc">Directories of law firms and bar associations across India.</div></div></div>
+        <div class="bcip"><div class="bcipi">🎓</div><div><div class="bcipn">Internships</div><div class="bcipdesc">Listings for law students at firms and legal departments.</div></div></div>
+        <div class="bcip"><div class="bcipi">🚫</div><div><div class="bcipn">Discovery only</div><div class="bcipdesc">Designed as a discovery and connection platform, operating within the Advocates Act, 1961 and applicable rules.</div></div></div>
+      </div>
+      <p style="margin-top:1.4rem;font-size:.78rem;opacity:.85;"><strong>About this preview:</strong> This is a preview with representative sample data for testing purposes only. None of the data on this site is accurate or real: every advocate, firm, case, judge, organisation, figure and fee shown is fictional.</p>
+      <div style="margin-top:1.2rem;display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;"><a class="btn bg" href="https://terratalesmedia.world/contact/">Join the waitlist →</a><a class="btn bg2" href="https://terratalesmedia.world/">Terratales</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="fi2">
+    <div class="ft2">
+      <div class="fb2">
+        <div class="logo"><svg viewBox="0 0 80 80" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="36" fill="none" stroke="#D4A84B" stroke-width="1.2" opacity=".5"/><line x1="22" y1="36" x2="58" y2="36" stroke="#D4A84B" stroke-width="1.7" stroke-linecap="round"/><line x1="40" y1="26" x2="40" y2="53" stroke="#D4A84B" stroke-width="1.7" stroke-linecap="round"/><path d="M18 43 Q24 48 30 43" fill="none" stroke="#D4A84B" stroke-width="1.4"/><path d="M50 43 Q56 48 62 43" fill="none" stroke="#D4A84B" stroke-width="1.4"/><circle cx="40" cy="25" r="2.6" fill="#D4A84B"/><circle cx="10" cy="13" r="1.7" fill="#D4A84B"/><circle cx="70" cy="13" r="1.7" fill="#D4A84B"/><circle cx="40" cy="72" r="1.7" fill="#D4A84B"/></svg><div class="ltx2" style="margin-left:.5rem;"><span class="lnm">The Akashic Records</span><span class="ltag">A Terratales Venture</span></div></div>
+        <p>A legal-intelligence platform in development: connecting citizens with the right counsel, in every language, for every court.</p>
+        <div style="display:flex;gap:.4rem;margin-top:.85rem;flex-wrap:wrap;"><span class="bci-nav">◆ Preview</span><span style="padding:.18rem .5rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:20px;font-size:.56rem;color:var(--gr);font-weight:700;">🔒 SSL Secured</span><span style="padding:.18rem .5rem;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.18);border-radius:20px;font-size:.56rem;color:var(--c);font-weight:700;">🌐 23 Languages</span></div>
+      </div>
+      <div class="fcol"><h4>Platform</h4><ul><li><a onclick="goNav('dir')">Find a Lawyer</a></li><li><a onclick="goNav('firms')">Law Firms Directory</a></li><li><a onclick="goNav('bar')">Bar Associations</a></li><li><a onclick="goNav('intern')">Law Internships</a></li><li><a onclick="goNav('cdb')">Case Tracker</a></li><li><a onclick="goNav('msg')">Secure Messaging</a></li></ul></div>
+      <div class="fcol"><h4>For Lawyers</h4><ul><li><a onclick="goNav('reg')">Register Free</a></li><li><a onclick="goNav('abt')">How verification will work</a></li><li><a onclick="goNav('fdb')">Firm Dashboard</a></li><li><a>Case Tracking</a></li><li><a>Scheduling Tools</a></li><li><a>Judgment Tracker</a></li></ul></div>
+      <div class="fcol"><h4>For Clients</h4><ul><li><a onclick="goNav('dir')">Browse Lawyers</a></li><li><a onclick="goNav('firms')">Find a Law Firm</a></li><li><a onclick="goNav('cdb')">Track Your Cases</a></li><li><a onclick="goNav('intern')">Law Internships</a></li><li><a>Help Centre</a></li></ul></div>
+      <div class="fcol"><h4>Company</h4><ul><li><a onclick="goNav('abt')">About</a></li><li><a href="https://terratalesmedia.world/privacy-policy/">Privacy Policy</a></li><li><a href="https://terratalesmedia.world/">Terratales</a></li><li><a href="https://terratalesmedia.world/contact/">Contact Us</a></li><li><a>Advocate Ethics</a></li><li><a>Accessibility</a></li></ul></div>
+    </div>
+    <div class="fdiscl">⚖️ <strong>Disclaimer:</strong> This is a preview with representative sample data for testing purposes only. None of the data on this site is accurate or real: every advocate, firm, case, judge, organisation, figure and fee shown is fictional. The Akashic Records is being designed as a discovery and connection platform only: it will not solicit legal business, provide legal advice, or process payments between clients and lawyers.</div>
+    <div class="fbot" style="margin-top:.85rem;"><span>© 2026 TERRATALES MEDIA ENTERTAINMENT PRIVATE LIMITED · The Akashic Records, a Terratales venture</span><span><a href="https://terratalesmedia.world/privacy-policy/">Privacy</a> · <a href="https://terratalesmedia.world/contact/">Contact</a></span></div>
+  </div>
+</footer>
+
+<script>
+const LAWYERS=[
+  {id:1,name:'Priya Krishnamurthy',ini:'PK',col:'#8B5CF6',enrl:'SAMPLE-0001 · Supreme Court',exp:['Constitutional','PIL','Fundamental Rights'],yrs:19,compat:92,wins:234,cases:312,rat:4.9,wr:75,langs:['English','Hindi','Tamil'],fa:'₹85,000',fh:'₹12,000',fr:'₹5L/mo',online:true,pri:'critical'},
+  {id:2,name:'Rajesh Mehta',ini:'RM',col:'#0891B2',enrl:'SAMPLE-0002 · Bombay HC',exp:['Corporate','M&A','SEBI','IBC'],yrs:23,compat:87,wins:189,cases:241,rat:4.8,wr:78,langs:['English','Hindi','Marathi','Gujarati'],fa:'₹1,20,000',fh:'₹18,000',fr:'₹8L/mo',online:true,pri:'critical'},
+  {id:3,name:'Aisha Raza Khan',ini:'AK',col:'#D97706',enrl:'SAMPLE-0003 · Delhi HC',exp:['Criminal','PMLA','Bail Matters'],yrs:14,compat:79,wins:142,cases:198,rat:4.7,wr:72,langs:['English','Hindi','Urdu'],fa:'₹50,000',fh:'₹8,000',fr:'₹3L/mo',online:false,pri:'medium'},
+  {id:4,name:'Suresh Nair',ini:'SN',col:'#059669',enrl:'SAMPLE-0004 · Madras HC',exp:['IP Law','Patents','Trademarks'],yrs:16,compat:84,wins:167,cases:210,rat:4.6,wr:79,langs:['English','Tamil','Malayalam'],fa:'₹45,000',fh:'₹7,500',fr:'₹2.5L/mo',online:true,pri:'low'},
+  {id:5,name:'Deepika Sharma',ini:'DS',col:'#BE185D',enrl:'SAMPLE-0005 · Calcutta HC',exp:['Family Law','Divorce','Custody'],yrs:12,compat:91,wins:118,cases:156,rat:4.8,wr:76,langs:['English','Hindi','Bengali'],fa:'₹35,000',fh:'₹6,000',fr:'₹2L/mo',online:true,pri:'medium'},
+  {id:6,name:'Vikram Bose',ini:'VB',col:'#7C3AED',enrl:'SAMPLE-0006 · NCLT Bengaluru',exp:['Insolvency','IBC','NCLT/NCLAT'],yrs:18,compat:88,wins:201,cases:267,rat:4.9,wr:75,langs:['English','Kannada','Telugu'],fa:'₹75,000',fh:'₹11,000',fr:'₹4L/mo',online:false,pri:'high'}
+];
+const CASES=[
+  {no:'WP(C) 824/2024',title:'Sharma & Anr. vs. Union of India',type:'Constitutional',court:'Supreme Court of India',bench:'Division Bench',judge:"Hon'ble Justice A. Varadan (sample)",sk:'sp2',sn:'Hearing',next:'18 Jun 2026',pri:'critical',lawyer:'Adv. Krishnamurthy'},
+  {no:'CP(IB)/342/MB/2024',title:'InnoTech Pvt Ltd vs. ABC Corp',type:'Insolvency',court:'NCLT Mumbai Bench',bench:'Single Bench',judge:"Hon'ble Member S. Iyer (sample)",sk:'sp1',sn:'Pending',next:'22 Jun 2026',pri:'high',lawyer:'Adv. Bose'},
+  {no:'SC No. 143/2024',title:'State of Delhi vs. Rajan Kapoor',type:'Criminal',court:'Delhi Sessions Court',bench:'Single Bench',judge:"Hon'ble Addl. Sess. Judge R. Mathur (sample)",sk:'sp4',sn:'Reserved',next:'14 Jun 2026',pri:'critical',lawyer:'Adv. Khan'},
+  {no:'TS No. 201/2023',title:'Mehta Family Trust — Partition',type:'Family',court:'Bombay High Court',bench:'Single Bench',judge:"Hon'ble Justice N. Kulkarni (sample)",sk:'sp5',sn:'Adjourned',next:'30 Jun 2026',pri:'medium',lawyer:'Adv. Sharma'},
+  {no:'CS(COMM) 567/2024',title:'FutureTech vs. Inventive Labs',type:'IP / Patent',court:'Delhi HC — IP Division',bench:'IP Bench',judge:"Hon'ble Justice M. Sethi (sample)",sk:'sp1',sn:'Pending',next:'25 Jun 2026',pri:'medium',lawyer:'Adv. Nair'}
+];
+const UPDATES=[
+  {ic:'📜',bg:'rgba(6,182,212,.12)',t:'Order Reserved — Supreme Court',d:'WP(C) 824/2024: Judgment reserved. Expected pronouncement in 2–4 weeks.',tm:'Today, 11:32 AM'},
+  {ic:'🔔',bg:'rgba(234,179,8,.1)',t:'Hearing Set — NCLT Mumbai',d:'CP(IB)/342/MB/2024: Next hearing 22 Jun 2026 at 11:00 AM.',tm:'Today, 10:15 AM'},
+  {ic:'📋',bg:'rgba(16,185,129,.1)',t:'Filing Acknowledged — Delhi HC',d:'CS(COMM) 567/2024: Amended plaint acknowledged. Counter-affidavit due 4 weeks.',tm:'Yesterday, 4:48 PM'},
+  {ic:'⚠️',bg:'rgba(239,68,68,.1)',t:'Adjournment — Bombay HC',d:'TS No. 201/2023: Adjourned to 30 Jun. Additional documents to be filed.',tm:'Yesterday, 2:30 PM'},
+  {ic:'✅',bg:'rgba(16,185,129,.1)',t:'Bail Reserved — Sessions Court',d:'SC No. 143/2024: Delhi Sessions Court reserved bail order. Decision 14 Jun.',tm:'Yesterday, 12:00 PM'}
+];
+const CONVS=[
+  {ini:'PK',col:'#8B5CF6',name:'Adv. Priya Krishnamurthy',prev:'Regarding your PIL matter...',time:'12m',unread:2,online:true},
+  {ini:'VM',col:'#0891B2',name:'Verma & Associates LLP',prev:'Firm proposal attached',time:'1h',unread:1,online:false},
+  {ini:'AK',col:'#D97706',name:'Adv. Aisha Raza Khan',prev:'Bail hearing adjourned...',time:'3h',unread:0,online:false},
+  {ini:'DS',col:'#BE185D',name:'Adv. Deepika Sharma',prev:'Documents received',time:'1d',unread:0,online:true},
+  {ini:'AI',col:'#7B5EA7',name:'⚡ AI Match Assistant',prev:'3 new lawyer matches found',time:'2d',unread:3,online:true}
+];
+const MSGS=[
+  {out:false,ini:'PK',col:'#8B5CF6',text:'Thank you for reaching out. I have reviewed your PIL brief on environmental clearances. This matter has strong constitutional grounds under Articles 14 and 21.',time:'Jun 10, 9:14 AM',type:'text'},
+  {out:true,ini:'YO',col:'#4A2D8A',text:'Thank you, Advocate Krishnamurthy. What is the estimated timeline and fee for this matter?',time:'Jun 10, 9:22 AM',type:'text'},
+  {out:false,ini:'AI',col:'#7B5EA7',text:'Based on your brief, here is a top-matched advocate:',time:'Jun 10, 9:23 AM',type:'suggest',s:{ini:'PK',col:'#8B5CF6',name:'Adv. Priya Krishnamurthy',rat:'4.9 ★ (312 cases)',tags:['Constitutional','PIL','Art. 21'],buls:['19 years at Supreme Court, 75% win rate.','Sample highlight: environmental and constitutional matters.','Average response time under 3 hours.'],compat:'92% Match'}},
+  {out:false,ini:'PK',col:'#8B5CF6',text:'My fee is ₹85,000 per appearance before the Supreme Court. The matter may take 18–36 months depending on bench availability.',time:'Jun 10, 9:35 AM',type:'text'},
+  {out:true,ini:'YO',col:'#4A2D8A',text:'That sounds reasonable. Can we schedule a consultation call this week?',time:'Jun 10, 9:40 AM',type:'text'},
+  {out:false,ini:'PK',col:'#8B5CF6',text:'Absolutely. I am available Thursday 12 June (4–6 PM IST) or Friday 13 June (10 AM–12 PM IST). Please use the calendar widget to book.',time:'Jun 10, 9:44 AM',type:'unavail',un:'📅 Next court appearance: 18 Jun 2026 · Supreme Court, Bench 3'}
+];
+const LANGS=[
+  {c:'en',n:'English',nat:'English'},{c:'hi',n:'Hindi',nat:'हिन्दी'},{c:'as',n:'Assamese',nat:'অসমীয়া'},
+  {c:'bn',n:'Bengali',nat:'বাংলা'},{c:'brx',n:'Bodo',nat:'बड़ो'},{c:'doi',n:'Dogri',nat:'डोगरी'},
+  {c:'gu',n:'Gujarati',nat:'ગુજરાતી'},{c:'kn',n:'Kannada',nat:'ಕನ್ನಡ'},{c:'ks',n:'Kashmiri',nat:'كشميري'},
+  {c:'kok',n:'Konkani',nat:'कोंकणी'},{c:'mai',n:'Maithili',nat:'मैथिली'},{c:'ml',n:'Malayalam',nat:'മലയാളം'},
+  {c:'mni',n:'Manipuri',nat:'মেইতেই'},{c:'mr',n:'Marathi',nat:'मराठी'},{c:'ne',n:'Nepali',nat:'नेपाली'},
+  {c:'or',n:'Odia',nat:'ଓଡ଼ିଆ'},{c:'pa',n:'Punjabi',nat:'ਪੰਜਾਬੀ'},{c:'sa',n:'Sanskrit',nat:'संस्कृतम्'},
+  {c:'sat',n:'Santali',nat:'ᱥᱟᱱᱛᱟᱲᱤ'},{c:'sd',n:'Sindhi',nat:'سنڌي'},{c:'ta',n:'Tamil',nat:'தமிழ்'},
+  {c:'te',n:'Telugu',nat:'తెలుగు'},{c:'ur',n:'Urdu',nat:'اردو'}
+];
+const FIRMS=[
+  {id:1,logo:'MLP',name:'Meridian Legal Partners',website:'meridian.example',areas:['Corporate','M&A','Private Equity','Capital Markets'],cities:['Mumbai','Delhi'],about:'Meridian Legal Partners is a sample corporate law firm used to show how firm profiles will look. It advises on M&A, private equity and capital markets transactions.',lawyers:[{n:'Ananya Rao',r:'Managing Partner'},{n:'Kabir Sethi',r:'Partner'},{n:'Ira Menon',r:'Partner'}],contact:{Mumbai:{addr:'Sample address, Lower Parel, Mumbai',phone:'+91 00000 00001',email:'mumbai@meridian.example'},Delhi:{addr:'Sample address, Gurugram',phone:'+91 00000 00002',email:'delhi@meridian.example'}}},
+  {id:2,logo:'V&C',name:'Varuna & Co.',website:'varuna.example',areas:['Corporate','Banking & Finance','Litigation'],cities:['Mumbai','Bengaluru','Pune'],about:'Varuna & Co. is a sample full-service firm. Its profile shows practice areas, lawyers and offices.',lawyers:[{n:'Rohan Varuna',r:'Founding Partner'},{n:'Meera Joshi',r:'Partner'},{n:'Arjun Pillai',r:'Partner'}],contact:{Mumbai:{addr:'Sample address, Nariman Point, Mumbai',phone:'+91 00000 00003',email:'hello@varuna.example'}}},
+  {id:3,logo:'NLC',name:'Northstar Law Chambers',website:'northstar.example',areas:['Dispute Resolution','Arbitration','Constitutional'],cities:['Delhi','Chandigarh'],about:'Northstar Law Chambers is a sample litigation and arbitration practice.\n\nThis text is placeholder copy for testing.',lawyers:[{n:'Devika Anand',r:'Senior Partner'},{n:'Sameer Khanna',r:'Partner'}],contact:{Delhi:{addr:'Sample address, Connaught Place, New Delhi',phone:'+91 00000 00004',email:'chambers@northstar.example'}}},
+  {id:4,logo:'SA',name:'Saptarishi Advocates',website:'saptarishi.example',areas:['Tax','Customs','International Trade','Regulatory'],cities:['Ahmedabad','Mumbai'],about:'Saptarishi Advocates is a sample tax and regulatory practice used for testing.',lawyers:[{n:'Hetal Shah',r:'Founding Partner'},{n:'Vivek Desai',r:'Partner'}],contact:{Ahmedabad:{addr:'Sample address, Navrangpura, Ahmedabad',phone:'+91 00000 00005',email:'tax@saptarishi.example'}}},
+  {id:5,logo:'IBL',name:'Indus Bridge Legal',website:'indusbridge.example',areas:['IP','Technology','Media & Entertainment'],cities:['Bengaluru','Hyderabad','Chennai'],about:'Indus Bridge Legal is a sample IP and technology firm.',lawyers:[{n:'Lakshmi Narayan',r:'Managing Partner'},{n:'Farhan Qureshi',r:'Partner'},{n:'Tara Bose',r:'Counsel'}],contact:{Bengaluru:{addr:'Sample address, MG Road, Bengaluru',phone:'+91 00000 00006',email:'ip@indusbridge.example'}}},
+  {id:6,logo:'KLO',name:'Kalpavriksha Law Offices',website:'kalpavriksha.example',areas:['Family','Real Estate','Employment','Insolvency'],cities:['Kolkata','Ranchi'],about:'Kalpavriksha Law Offices is a sample general practice firm.',lawyers:[{n:'Sourav Mitra',r:'Senior Partner'},{n:'Nandini Ghosh',r:'Partner'}],contact:{Kolkata:{addr:'Sample address, Park Street, Kolkata',phone:'+91 00000 00007',email:'office@kalpavriksha.example'}}}
+];
+const INTERNSHIPS=[
+  {org:'Meridian Legal Partners',type:'firm',role:'Legal Research Intern',city:'Mumbai',dur:'2 months',stipend:'₹X,XXX/mo (sample)',areas:['Corporate','M&A'],dl:'Sample date'},
+  {org:'Northstar Law Chambers',type:'firm',role:'Litigation Intern',city:'New Delhi',dur:'6 weeks',stipend:'₹X,XXX/mo (sample)',areas:['Litigation','Arbitration'],dl:'Sample date'},
+  {org:'Sample Industries Ltd. — Legal',type:'corp',role:'In-House Counsel Intern',city:'Mumbai',dur:'3 months',stipend:'₹X,XXX/mo (sample)',areas:['Corporate','Contracts'],dl:'Sample date'},
+  {org:'Indus Bridge Legal',type:'firm',role:'IP Research Associate',city:'Bengaluru',dur:'3 months',stipend:'₹X,XXX/mo (sample)',areas:['IP','Tech Law'],dl:'Sample date'},
+  {org:'Example Tech Pvt. Ltd. — Compliance',type:'corp',role:'Legal Compliance Intern',city:'Bengaluru',dur:'2 months',stipend:'₹X,XXX/mo (sample)',areas:['Tech Law','Compliance'],dl:'Sample date'},
+  {org:'Saptarishi Advocates',type:'firm',role:'Tax Intern',city:'Ahmedabad',dur:'6 weeks',stipend:'₹X,XXX/mo (sample)',areas:['Tax','Customs'],dl:'Sample date'}
+];
+const BARASSOCS=[
+  {state:'Apex Court',list:[{nm:'Sample Apex Court Bar',loc:'New Delhi',tp:'Apex Court'}]},
+  {state:'Delhi',list:[{nm:'Sample High Court Bar, Delhi',loc:'New Delhi',tp:'High Court'},{nm:'Sample District Bar, Saket',loc:'New Delhi',tp:'District Court'}]},
+  {state:'Maharashtra',list:[{nm:'Sample High Court Bar, Mumbai',loc:'Mumbai',tp:'High Court'},{nm:'Sample City Law Society',loc:'Mumbai',tp:'City Bar'}]},
+  {state:'Karnataka',list:[{nm:'Sample High Court Bar, Bengaluru',loc:'Bengaluru',tp:'High Court'}]},
+  {state:'Tamil Nadu',list:[{nm:'Sample High Court Bar, Chennai',loc:'Chennai',tp:'High Court'}]},
+  {state:'Jharkhand',list:[{nm:'Sample District Bar, Dhanbad',loc:'Dhanbad',tp:'District Court'},{nm:'Sample District Bar, Bokaro',loc:'Bokaro',tp:'District Court'}]}
+];
+
+let curL='en',annual=false,isLoggedIn=false,curFirm=null,curFirmTab='areas',regStep=1,regType=null;
+
+function goNav(s){
+  document.querySelectorAll('.sec,.msec').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.nl a').forEach(x=>x.classList.remove('on'));
+  const map={home:'shome',dir:'sdir',firms:'sfirms',bar:'sbar',intern:'sintern',cdb:'scdb',fdb:'sfdb',msg:'smsg',reg:'sreg',abt:'sabt'};
+  const el=document.getElementById(map[s]);
+  if(el){el.classList.add('on');}
+  const nl=document.getElementById('nl-'+s);if(nl)nl.classList.add('on');
+  if(s==='db'||s==='cdb'||s==='fdb'){document.getElementById('nl-db').classList.add('on');}
+  window.scrollTo(0,0);
+  document.querySelector('body').scrollTop=0;
+  document.getElementById('dbdd').classList.remove('open');
+  if(s==='dir')initDir();
+  if(s==='firms')initFirms();
+  if(s==='bar')initBar();
+  if(s==='intern')initInternships();
+  if(s==='cdb')initCDB();
+  if(s==='fdb')initFDB();
+  if(s==='msg')initMsg();
+  if(s==='reg')initReg();
+}
+
+function toggleDD(){document.getElementById('dbdd').classList.toggle('open');}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.ddw'))document.getElementById('dbdd').classList.remove('open');
+  if(!e.target.closest('.lswrap'))document.getElementById('ld').classList.remove('open');
+});
+
+function toggleLogin(){
+  isLoggedIn=!isLoggedIn;
+  const btn=document.getElementById('loginbtn');
+  btn.textContent=isLoggedIn?'Sign Out':'Sign In';
+  const note=document.getElementById('login-note');
+  if(note)note.innerHTML=isLoggedIn?'Showing full profiles with compatibility scores · <span style="color:var(--gr)">✓ Signed In</span>':'Browse sample advocate profiles · <span style="color:var(--g);cursor:pointer;" onclick="toggleLogin()">Sign in</span> to unlock compatibility scores & full profiles';
+  const g=document.getElementById('lgrid');if(g)g.innerHTML='';
+  initDir();
+}
+
+function initSF(){
+  const c=document.getElementById('sf'),ctx=c.getContext('2d');
+  let W,H,S=[];
+  const rsz=()=>{W=c.width=innerWidth;H=c.height=innerHeight;S=[];for(let i=0;i<160;i++)S.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.3,sp:Math.random()*.3+.06,o:Math.random(),d:Math.random()>.5?1:-1});};
+  window.addEventListener('resize',rsz);rsz();
+  function draw(){ctx.clearRect(0,0,W,H);S.forEach(s=>{s.o+=s.d*.004;if(s.o>1||s.o<0)s.d*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(212,168,75,${s.o*.5})`;ctx.fill();s.x-=s.sp*.08;if(s.x<-2)s.x=W+2;});requestAnimationFrame(draw);}
+  draw();
+}
+
+function animCnt(id,target){
+  let n=0;const el=document.getElementById(id);if(!el)return;
+  const step=Math.ceil(target/55);
+  const iv=setInterval(()=>{n=Math.min(n+step,target);el.textContent=n.toLocaleString('en-IN');if(n>=target)clearInterval(iv);},28);
+}
+
+function buildLL(f){
+  const ul=document.getElementById('llist');
+  const fl=LANGS.filter(l=>!f||(l.n.toLowerCase().includes(f.toLowerCase())||l.nat.includes(f)));
+  ul.innerHTML=fl.map(l=>`<div class="li3 ${l.c===curL?'sel':''}" onclick="selL('${l.c}','${l.c.substring(0,2).toUpperCase()}')"><div><div class="lname">${l.n}</div><div class="lscr">${l.nat}</div></div>${l.c===curL?'<span class="lck">✓</span>':''}</div>`).join('');
+}
+function selL(c,code){curL=c;document.getElementById('cur-lang').textContent=code;document.getElementById('ld').classList.remove('open');buildLL('');}
+function filterL(v){buildLL(v);}
+function toggleLD(){const d=document.getElementById('ld');d.classList.toggle('open');if(d.classList.contains('open')){buildLL('');document.getElementById('lsrch').focus();}}
+
+function pcMap(p){return{critical:'pcc',high:'pch',medium:'pcm',low:'pcl'}[p]||'pcl';}
+
+function drawRing(el,pct){
+  const r=19,circ=2*Math.PI*r;
+  const col=pct>=85?'#10B981':pct>=70?'#D4A84B':'#F97316';
+  el.innerHTML=`<svg viewBox="0 0 46 46" width="46" height="46"><circle class="crtr" cx="23" cy="23" r="${r}"/><circle class="crfl" cx="23" cy="23" r="${r}" stroke="${col}" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-pct/100)}" transform="rotate(-90 23 23)"/></svg><span class="crval" style="color:${col}">${pct}%</span>`;
+}
+
+function initDir(){
+  const g=document.getElementById('lgrid');if(!g||g.children.length)return;
+  g.innerHTML=LAWYERS.map(l=>`<div class="lcard">
+    <div class="lct">
+      <div class="lav"><div class="lavc" style="background:linear-gradient(135deg,${l.col},${l.col}99)">${l.ini}</div>${l.online?'<div class="lonl"></div>':''}</div>
+      <div style="flex:1;min-width:0;"><div class="lnm">${l.name}</div><div class="lenr">${l.enrl}</div><div class="lver">Sample profile</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        ${isLoggedIn?`<div class="cr" id="cr${l.id}"></div><div class="crlbl">Match</div>`:`<div class="lock-ring"><div class="lock-circ">🔒</div><div class="lock-lbl">Sign in</div></div>`}
+      </div>
+    </div>
+    <div class="etags">${l.exp.map(e=>`<span class="et">${e}</span>`).join('')}</div>
+    <div class="lms"><div><span class="lmsv">${l.yrs}yr</span><span class="lmsk">Exp.</span></div><div><span class="lmsv">${l.wins}</span><span class="lmsk">Won</span></div><div><span class="lmsv">${l.rat}★</span><span class="lmsk">Rating</span></div></div>
+    <div class="wbw"><div class="wbh"><span>Win Rate</span><span>${l.wr}%</span></div><div class="wbt"><div class="wbf" style="width:${l.wr}%;background:linear-gradient(90deg,#1a7a40,#10B981)"></div></div></div>
+    ${isLoggedIn?`<div class="fchips"><div class="fchip">👁 ${l.fa}/appear</div><div class="fchip">⏱ ${l.fh}/hr</div><div class="fchip">📋 ${l.fr}</div></div>`:`<div class="prem"><div class="prem-c"><div class="fchips"><div class="fchip">👁 ₹X,XXX/appear</div><div class="fchip">⏱ ₹X,XXX/hr</div></div></div><div class="prem-ov"><div class="prem-cta"><p>Sign in to see fees & contact details</p><button class="prem-btn" onclick="toggleLogin()">Sign In</button></div></div></div>`}
+    <div class="llng">🌐 ${l.langs.map(lg=>`<span class="lngtag">${lg}</span>`).join('')}</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.68rem;"><span style="font-size:.62rem;color:var(--t2);">📍 ${l.enrl.split('·')[1]?.trim()||''}</span><span class="pchip ${pcMap(l.pri)}">${l.pri}</span></div>
+    <div class="lcact"><button class="bxs bxo">Profile</button><button class="bxs bxp" onclick="goNav('msg')">💬 Message</button>${isLoggedIn?`<button class="bxs bxf">Contact →</button>`:`<button class="bxs bxf" onclick="toggleLogin()" style="font-size:.62rem;">🔒 Sign In</button>`}</div>
+  </div>`).join('');
+  setTimeout(()=>{if(isLoggedIn)LAWYERS.forEach(l=>{const el=document.getElementById('cr'+l.id);if(el)drawRing(el,l.compat);});},400);
+  document.querySelectorAll('.fch').forEach(t=>t.onclick=function(){this.classList.toggle('on');});
+}
+
+function initFirms(){
+  const fl=document.getElementById('firm-list');
+  if(!fl||fl.children.length)return;
+  fl.innerHTML=FIRMS.map(f=>`<div class="firm-row" onclick="showFirmProfile(${f.id})">
+    <div class="firm-logo">${f.logo}</div>
+    <div style="flex:1;"><div class="firm-nm">${f.name}</div><div class="firm-accs">${f.areas.slice(0,4).map(a=>`<span class="firm-acc">${a}</span>`).join('')}<span class="firm-acc">📍 ${f.cities.join(', ')}</span></div></div>
+    <div class="firm-pl" onclick="event.stopPropagation();showFirmProfile(${f.id})">Firm profile ›</div>
+  </div>`).join('');
+  document.querySelectorAll('.ng-b').forEach(b=>b.onclick=function(){document.querySelectorAll('.ng-b').forEach(x=>x.classList.remove('on'));this.classList.add('on');});
+}
+
+function showFirmProfile(id){
+  curFirm=FIRMS.find(f=>f.id===id);if(!curFirm)return;
+  curFirmTab='areas';
+  document.getElementById('firms-dir').style.display='none';
+  document.getElementById('firms-profile').style.display='block';
+  document.getElementById('fp-bc-nm').textContent=curFirm.name;
+  document.getElementById('fp-logo').textContent=curFirm.logo;
+  document.getElementById('fp-name').textContent=curFirm.name;
+  document.getElementById('fp-web').innerHTML=`🌐 ${curFirm.website}`;
+  renderFirmContent();
+}
+
+function showFirmsDir(){
+  document.getElementById('firms-dir').style.display='';
+  document.getElementById('firms-profile').style.display='none';
+}
+
+function switchFirmTab(t){
+  curFirmTab=t;
+  document.querySelectorAll('.fp-nav').forEach(n=>n.classList.remove('on'));
+  event.target.classList.add('on');
+  renderFirmContent();
+}
+
+function renderFirmContent(){
+  const el=document.getElementById('fp-content');
+  const f=curFirm;if(!el||!f)return;
+  if(curFirmTab==='areas'){
+    el.innerHTML=`<div class="rk-grid">${f.areas.map(a=>`<div class="rk-card"><div class="rk-cc">PRACTICE AREA</div><div class="rk-area">${a}</div></div>`).join('')}</div><p style="margin-top:1rem;font-size:.72rem;color:var(--lt2);">Sample firm. Practice areas as listed by the firm.</p>`;
+  } else if(curFirmTab==='about'){
+    const paras=f.about.split('\n\n');
+    el.innerHTML=`<div class="abt-txt">${paras.map(p=>p.startsWith('•')||p.includes('\n•')?`<ul>${p.split('\n').filter(x=>x.trim()).map(x=>`<li>${x.replace(/^•\s*/,'')}</li>`).join('')}</ul>`:`<p>${p}</p>`).join('')}</div>`;
+  } else if(curFirmTab==='lawyers'){
+    el.innerHTML=`<div class="plgrid">${f.lawyers.map(l=>`<div class="plcard"><div class="plav">👤</div><div><div class="pln">${l.n}</div><div class="plrole">${l.r}</div></div></div>`).join('')}</div>`;
+  } else if(curFirmTab==='guides'){
+    el.innerHTML=`<div class="gg"><div class="gc"><div class="gc-tp">Sample article</div><div class="gc-ttl">Investing In <span>India</span></div><div class="gc-dt">Sample date</div><div class="gc-auth">Practice heads, ${f.name}</div></div><div class="gc"><div class="gc-tp">Sample article</div><div class="gc-ttl">Towards a Balanced and Enforceable Framework</div><div class="gc-dt">Sample date</div><div class="gc-auth">Senior Associates, ${f.name}</div></div></div>`;
+  } else if(curFirmTab==='contact'){
+    const cities=Object.keys(f.contact);
+    el.innerHTML=`<div><h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--ltx);margin-bottom:1.2rem;">India</h3><div class="ct-grid">${cities.map(c=>`<div><div class="ct-city">${c.replace(/([A-Z])/g,' $1').trim()}</div><div class="ct-addr">${f.name}<br>${f.contact[c].addr}</div><span class="ct-phone">${f.contact[c].phone}</span><span class="ct-email">${f.contact[c].email}</span></div>`).join('')}</div></div>`;
+  }
+}
+
+function initBar(){
+  const bl=document.getElementById('bar-list');
+  if(!bl||bl.children.length)return;
+  bl.innerHTML=BARASSOCS.map(bg=>`<div class="bsg"><div class="bsg-ttl">📍 ${bg.state}</div><div class="barg">${bg.list.map(b=>`<div class="barc"><div class="barc-nm">${b.nm}</div><div class="barc-loc">📍 ${b.loc}</div><div class="barc-stats"><span class="sample-tag">sample entry</span></div><span class="barc-tp">${b.tp}</span></div>`).join('')}</div></div>`).join('');
+}
+
+function initInternships(){
+  const g=document.getElementById('intern-grid');
+  if(!g||g.children.length)return;
+  g.innerHTML=INTERNSHIPS.map(i=>`<div class="icard">
+    <div class="ic-tp ${i.type}">${i.type==='firm'?'⚖️ Law Firm':'🏢 Corporate'}</div>
+    <div class="ic-org">${i.org}</div>
+    <div class="ic-role">${i.role}</div>
+    <div class="ic-meta"><span class="icm">📍 ${i.city}</span><span class="icm">⏱ ${i.dur}</span><span class="icm">💰 ${i.stipend}</span></div>
+    <div class="ic-dl">⏰ Apply by: ${i.dl}</div>
+    <div class="ic-skills">${i.areas.map(a=>`<span class="ic-sk">${a}</span>`).join('')}</div>
+    <button class="ic-apply">Apply Now →</button>
+  </div>`).join('');
+}
+
+function initCDB(){
+  const tbl=document.getElementById('ctbl');
+  if(tbl&&!tbl.innerHTML){tbl.innerHTML=`<thead><tr><th>Case No.</th><th>Title & Court</th><th>Type</th><th>Judge</th><th>Status</th><th>Next Date</th><th>Priority</th><th>Lawyer</th></tr></thead><tbody>${CASES.map(c=>`<tr><td><div class="cno">${c.no}</div></td><td><div class="ctit">${c.title}</div><div class="cct">${c.court} · ${c.bench}</div></td><td><span style="font-size:.68rem;color:var(--t2)">${c.type}</span></td><td><div class="cjg">${c.judge}</div></td><td><span class="spl ${c.sk}">${c.sn}</span></td><td><div style="font-size:.7rem;font-weight:700;">${c.next}</div></td><td><span class="pchip ${pcMap(c.pri)}">${c.pri}</span></td><td><span style="font-size:.68rem;">${c.lawyer}</span></td></tr>`).join('')}</tbody>`;}
+  const udl=document.getElementById('udl');
+  if(udl&&!udl.children.length){udl.innerHTML=UPDATES.map(u=>`<div class="udi"><div class="udic" style="background:${u.bg}">${u.ic}</div><div><div class="udt">${u.t}</div><div class="udd">${u.d}</div><div class="udtime">${u.tm}</div></div></div>`).join('');}
+  renderCal();renderEvents();renderJudges();
+}
+
+function renderCal(){
+  const mc=document.getElementById('mcal');if(!mc)return;
+  const y=2026,m=5;const mn='Jun';
+  const fd=new Date(y,m,1).getDay();const days=new Date(y,m+1,0).getDate();
+  const h=[14,18,22,25,30],ev=[10,15,20];
+  mc.innerHTML=`<div class="mch"><button class="mcnav">◀</button><h4>${mn} ${y}</h4><button class="mcnav">▶</button></div>
+  <div class="mcg">${['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>`<div class="mcdn">${d}</div>`).join('')}${Array(fd).fill('<div class="mcd ot"></div>').join('')}${Array.from({length:days},(_,i)=>{const d=i+1;const isT=d===5&&m===5;return`<div class="mcd${isT?' td':''}${h.includes(d)?' hrg':''}${ev.includes(d)?' hev':''}">${d}</div>`;}).join('')}</div>`;
+}
+
+function renderEvents(){
+  const el=document.getElementById('evl');if(!el)return;
+  el.innerHTML=[{d:'14',m:'Jun',t:'SC No. 143/2024 — Bail Hearing',s:'Delhi Sessions Court · 10:30 AM'},{d:'18',m:'Jun',t:'WP(C) 824/2024 — Supreme Court',s:'Bench 3 · 2:00 PM'},{d:'22',m:'Jun',t:'NCLT Mumbai — IBC Hearing',s:'CP(IB)/342/MB/2024 · 11:00 AM'},{d:'25',m:'Jun',t:'Delhi HC — Patent Matter',s:'CS(COMM) 567/2024 · 3:30 PM'}].map(e=>`<div class="evi"><div class="evd"><div class="evday">${e.d}</div><div class="evmon">${e.m}</div></div><div><div class="evttl">${e.t}</div><div class="evsub">${e.s}</div></div></div>`).join('');
+}
+
+function renderJudges(){
+  const jl=document.getElementById('judgesl');if(!jl||jl.children.length)return;
+  [{n:"Hon'ble Justice A. Varadan (sample)",c:'Supreme Court, Bench 3',cs:'WP(C) 824/2024',d:'18 Jun'},{n:"Hon'ble Justice M. Sethi (sample)",c:'Delhi HC — IP Division',cs:'CS(COMM) 567/2024',d:'25 Jun'},{n:"Hon'ble Justice N. Kulkarni (sample)",c:'Bombay HC, Single Bench',cs:'TS No. 201/2023',d:'30 Jun'}].forEach(j=>{const d=document.createElement('div');d.style.cssText='display:flex;gap:.65rem;padding:.55rem .72rem;background:var(--bg3);border:1px solid var(--b2);border-radius:9px;align-items:center;';d.innerHTML=`<div style="width:32px;height:32px;border-radius:50%;background:var(--gl);border:1px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--g);flex-shrink:0;">⚖</div><div><div style="font-size:.72rem;font-weight:700;">${j.n}</div><div style="font-size:.6rem;color:var(--t2);margin-top:.06rem;">${j.c}</div><div style="font-size:.58rem;color:var(--t3);margin-top:.05rem;">${j.cs} · ${j.d}</div></div>`;jl.appendChild(d);});
+}
+
+function initFDB(){
+  document.getElementById('fdb-content').innerHTML='';
+  switchFDB('overview',document.querySelector('.fdbt'));
+}
+
+function switchFDB(tab,btn){
+  if(btn){document.querySelectorAll('.fdbt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+  const el=document.getElementById('fdb-content');
+  if(tab==='overview'){
+    el.innerHTML=`<div class="fdb-stats"><div class="fds"><div class="fds-val">47</div><div class="fds-lbl">Active Clients</div></div><div class="fds"><div class="fds-val">128</div><div class="fds-lbl">Open Cases</div></div><div class="fds"><div class="fds-val">₹28.4L</div><div class="fds-lbl">Billed This Month</div></div><div class="fds"><div class="fds-val">94%</div><div class="fds-lbl">Client Satisfaction</div></div></div>
+    <div class="fdb-grid"><div>
+      <div class="lpnl"><div class="lpnlh"><h3>Recent Client Activity</h3></div><table class="ltbl"><thead><tr><th>Client</th><th>Case / Matter</th><th>Status</th><th>Last Update</th><th>Assigned To</th></tr></thead><tbody>
+      <tr><td><div class="lcl-nm">Sample Industries Ltd.</div></td><td><div class="lcl-cs">Arbitration — NCLT Matter</div></td><td><span class="lcs act">Active</span></td><td style="font-size:.65rem;color:var(--lt2);">Today, 9:14 AM</td><td style="font-size:.65rem;">Adv. Mehta</td></tr>
+      <tr><td><div class="lcl-nm">Mr. Rahul Sharma</div></td><td><div class="lcl-cs">Family Matter — Divorce</div></td><td><span class="lcs pen">Pending</span></td><td style="font-size:.65rem;color:var(--lt2);">Yesterday</td><td style="font-size:.65rem;">Adv. Sharma</td></tr>
+      <tr><td><div class="lcl-nm">ABC Pvt. Ltd.</div></td><td><div class="lcl-cs">IP Registration — Trademark</div></td><td><span class="lcs act">Active</span></td><td style="font-size:.65rem;color:var(--lt2);">22 Jun 2026</td><td style="font-size:.65rem;">Adv. Nair</td></tr>
+      <tr><td><div class="lcl-nm">State of Maharashtra</div></td><td><div class="lcl-cs">Constitutional Challenge</div></td><td><span class="lcs cld">Closed</span></td><td style="font-size:.65rem;color:var(--lt2);">15 Jun 2026</td><td style="font-size:.65rem;">Adv. Krishnamurthy</td></tr>
+      </tbody></table></div>
+    </div>
+    <div><div class="lpnl"><div class="lpnlh"><h3>Upcoming Deadlines</h3></div><div style="padding:.65rem .95rem;display:flex;flex-direction:column;gap:.45rem;">
+      <div style="display:flex;gap:.65rem;padding:.5rem .72rem;background:var(--lbg);border:1px solid var(--lb);border-radius:8px;align-items:flex-start;"><div style="width:34px;text-align:center;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:.15rem;flex-shrink:0;"><div style="font-size:.85rem;font-weight:900;color:#EF4444;line-height:1;">14</div><div style="font-size:.5rem;color:var(--lt3);">Jun</div></div><div><div style="font-size:.74rem;font-weight:700;color:var(--ltx);">Bail Hearing — Kapoor</div><div style="font-size:.62rem;color:var(--lt2);">Delhi Sessions · 10:30 AM</div></div></div>
+      <div style="display:flex;gap:.65rem;padding:.5rem .72rem;background:var(--lbg);border:1px solid var(--lb);border-radius:8px;align-items:flex-start;"><div style="width:34px;text-align:center;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:.15rem;flex-shrink:0;"><div style="font-size:.85rem;font-weight:900;color:#CA8A04;line-height:1;">18</div><div style="font-size:.5rem;color:var(--lt3);">Jun</div></div><div><div style="font-size:.74rem;font-weight:700;color:var(--ltx);">SC PIL Hearing</div><div style="font-size:.62rem;color:var(--lt2);">Supreme Court, Bench 3</div></div></div>
+      <div style="display:flex;gap:.65rem;padding:.5rem .72rem;background:var(--lbg);border:1px solid var(--lb);border-radius:8px;align-items:flex-start;"><div style="width:34px;text-align:center;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:6px;padding:.15rem;flex-shrink:0;"><div style="font-size:.85rem;font-weight:900;color:#4F46E5;line-height:1;">22</div><div style="font-size:.5rem;color:var(--lt3);">Jun</div></div><div><div style="font-size:.74rem;font-weight:700;color:var(--ltx);">NCLT Mumbai Hearing</div><div style="font-size:.62rem;color:var(--lt2);">IBC Matter — InnoTech</div></div></div>
+    </div></div></div></div>`;
+  } else {
+    el.innerHTML=`<div style="text-align:center;padding:3rem;color:var(--lt2);font-size:.82rem;">📊 ${tab.charAt(0).toUpperCase()+tab.slice(1)} module — Coming soon</div>`;
+  }
+}
+
+function initMsg(){
+  const cl=document.getElementById('clist');
+  if(cl&&!cl.children.length){cl.innerHTML=CONVS.map((c,i)=>`<div class="crow ${i===0?'on':''}" onclick="document.querySelectorAll('.crow').forEach(r=>r.classList.remove('on'));this.classList.add('on')"><div class="cav2" style="background:linear-gradient(135deg,${c.col},${c.col}88)">${c.ini}</div><div class="ci"><div class="cn">${c.name}${c.online?'<span style="width:7px;height:7px;background:var(--gr);border-radius:50%;display:inline-block;"></span>':''}${c.unread?`<span class="ub">${c.unread}</span>`:''}</div><div class="cp">${c.prev}</div></div><div class="cm"><span class="ct">${c.time}</span></div></div>`).join('');}
+  const cm=document.getElementById('cmsg');
+  if(cm&&!cm.children.length){
+    MSGS.forEach(m=>{const d=document.createElement('div');
+    if(m.type==='text'){d.innerHTML=`<div class="mrow ${m.out?'out':'in'}"><div class="mavt" style="background:linear-gradient(135deg,${m.col},${m.col}88)">${m.ini}</div><div><div class="mb">${m.text}</div><div class="mt">${m.time}</div></div></div>`;}
+    else if(m.type==='suggest'){const s=m.s;d.innerHTML=`<div class="mrow in"><div class="mavt" style="background:linear-gradient(135deg,${m.col},${m.col}88)">${m.ini}</div><div><div class="mb">${m.text}</div></div></div><div class="scard"><div class="sch"><div class="scav" style="background:linear-gradient(135deg,${s.col},${s.col}88)">${s.ini}</div><div class="scm"><div class="sn">${s.name}</div><div class="sr">★ ${s.rat}</div></div><button class="scbtn" onclick="goNav('msg')">Contact →</button></div><div class="stgs3">${s.tags.map(t=>`<span class="stg3">${t}</span>`).join('')}</div><ul class="sbls">${s.buls.map(b=>`<li>${b}</li>`).join('')}</ul><div class="sft"><span class="spill">${s.compat}</span> AI Compatibility Score</div></div><div style="font-size:.56rem;color:var(--t3);margin-left:1.8rem;margin-top:.18rem;">${m.time}</div>`;}
+    else if(m.type==='unavail'){d.innerHTML=`<div class="mrow in"><div class="mavt" style="background:linear-gradient(135deg,${m.col},${m.col}88)">${m.ini}</div><div><div class="mb">${m.text}</div><div class="mt">${m.time}</div></div></div><div class="unavb">${m.un}</div>`;}
+    cm.appendChild(d);});
+    cm.scrollTop=cm.scrollHeight;
+  }
+}
+
+const REG_STEPS=['Account Type','Personal Details','Professional Info','Expertise & Operation','Review & Submit'];
+function initReg(){
+  regStep=1;regType=null;
+  updateRegProgress();
+  renderRegStep();
+}
+
+function updateRegProgress(){
+  const pct=Math.round((regStep/REG_STEPS.length)*100);
+  document.getElementById('rpbf').style.width=pct+'%';
+  const prog=document.getElementById('reg-prog');
+  prog.innerHTML=REG_STEPS.map((s,i)=>{
+    const n=i+1;const cls=n<regStep?'done':n===regStep?'cur':'up';
+    return`<div class="rp-s">${i>0?`<div class="rp-line ${n<=regStep?'done':''}"></div>`:''}<div class="rp-n ${cls}">${n<regStep?'✓':n}</div><div class="rp-lbl">${s}</div></div>`;
+  }).join('');
+}
+
+function renderRegStep(){
+  const el=document.getElementById('reg-form-area');
+  if(regStep===1){
+    el.innerHTML=`<div class="reg-card"><div class="reg-step-ttl">Choose your account type</div><div class="reg-step-dsc">Select how you will use The Akashic Records platform.</div>
+    <div class="rtgrid">
+      <div class="rtcard ${regType==='lawyer'?'sel':''}" onclick="setRegType('lawyer')"><div class="rtc-ic">⚖️</div><div class="rtc-nm">Individual Advocate</div><div class="rtc-ds">Enrolled advocate. Listing terms to be announced.</div></div>
+      <div class="rtcard ${regType==='firm'?'sel':''}" onclick="setRegType('firm')"><div class="rtc-ic">🏛️</div><div class="rtc-nm">Law Firm</div><div class="rtc-ds">Register your law firm for enhanced visibility and features.</div></div>
+      <div class="rtcard ${regType==='student'?'sel':''}" onclick="setRegType('student')"><div class="rtc-ic">🎓</div><div class="rtc-nm">Law Student</div><div class="rtc-ds">Access internship listings and legal resources.</div></div>
+    </div>
+    <div class="form-nav"><div></div><button class="fn-next" onclick="nextRegStep()" ${!regType?'disabled style="opacity:.5"':''}>Continue →</button></div></div>`;
+  } else if(regStep===2){
+    el.innerHTML=`<div class="reg-card"><div class="reg-step-ttl">Personal / Firm Details</div><div class="reg-step-dsc">Basic identification and contact information.</div>
+    <div class="fgrd">
+      ${regType==='firm'?`<div class="fg2 sp2"><label>Firm Name <span class="req">*</span></label><input type="text" placeholder="e.g. Sharma & Associates LLP"/></div>
+      <div class="fg2"><label>Firm Type <span class="req">*</span></label><select><option>Choose...</option><option>Partnership</option><option>LLP</option><option>Sole Proprietorship</option><option>Private Limited</option></select></div>
+      <div class="fg2"><label>Year Established</label><input type="number" placeholder="e.g. 2005"/></div>
+      <div class="fg2"><label>Registration Number</label><input type="text" placeholder="Firm registration no."/></div>
+      <div class="fg2"><label>Total Lawyers / Partners</label><input type="number" placeholder="e.g. 12"/></div>`:`<div class="fg2"><label>Full Name <span class="req">*</span></label><input type="text" placeholder="As on your enrolment certificate"/></div>
+      <div class="fg2"><label>Date of Birth</label><input type="date"/></div>`}
+      <div class="fg2"><label>Email Address <span class="req">*</span></label><input type="email" placeholder="official@email.com"/></div>
+      <div class="fg2"><label>Mobile Number <span class="req">*</span></label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+      <div class="fg2 sp2"><label>Office / Chamber Address <span class="req">*</span></label><textarea placeholder="Full address including floor, building, city, PIN..."></textarea></div>
+      <div class="fg2"><label>City <span class="req">*</span></label><input type="text" placeholder="e.g. New Delhi"/></div>
+      <div class="fg2"><label>State <span class="req">*</span></label><select><option>Select State</option><option>Delhi (NCT)</option><option>Maharashtra</option><option>Karnataka</option><option>Tamil Nadu</option><option>West Bengal</option><option>Gujarat</option><option>Telangana</option><option>Rajasthan</option><option>Uttar Pradesh</option></select></div>
+      <div class="fg2"><label>Website (optional)</label><input type="url" placeholder="https://..."/></div>
+    </div>
+    <div class="form-nav"><button class="fn-back" onclick="prevRegStep()">← Back</button><button class="fn-next" onclick="nextRegStep()">Continue →</button></div></div>`;
+  } else if(regStep===3){
+    el.innerHTML=`<div class="reg-card">${regType!=='student'?`<div class="bci-note">ℹ️ <span>Preview form: nothing you enter is sent or stored.</span></div>`:''}
+    <div class="reg-step-ttl">${regType==='student'?'Academic Details':'Professional Credentials'}</div><div class="reg-step-dsc">${regType==='student'?'Tell us about your legal education.':'Your enrolment, court and professional details.'}</div>
+    <div class="fgrd">
+    ${regType==='lawyer'?`
+      <div class="fg2"><label>Enrolment Number <span class="req">*</span></label><input type="text" placeholder="e.g. MH/1234/2010"/></div>
+      <div class="fg2"><label>State of Enrolment <span class="req">*</span></label><select><option>Select state</option><option>Delhi</option><option>Maharashtra & Goa</option><option>Karnataka</option><option>Tamil Nadu & Puducherry</option><option>West Bengal</option><option>Gujarat</option><option>Jharkhand</option><option>Rajasthan</option></select></div>
+      <div class="fg2"><label>Year of Enrollment <span class="req">*</span></label><input type="number" placeholder="e.g. 2010" min="1950" max="2026"/></div>
+      <div class="fg2"><label>Years of Practice</label><input type="number" placeholder="e.g. 14"/></div>
+      <div class="fg2"><label>Primary Court / Jurisdiction <span class="req">*</span></label><select><option>Select Court</option><option>Supreme Court of India</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Madras High Court</option><option>Calcutta High Court</option><option>NCLT</option><option>NCLAT</option><option>NGT</option><option>RERA</option><option>District Court</option></select></div>
+      <div class="fg2"><label>Chamber Name (if applicable)</label><input type="text" placeholder="e.g. Chamber No. 412, Supreme Court"/></div>
+      <div class="fg2 sp2"><label>Bar Associations (select all that apply)</label><select multiple style="height:90px;"><option>Sample Apex Court Bar</option><option>Sample High Court Bar, Delhi</option><option>Sample High Court Bar, Mumbai</option><option>Sample High Court Bar, Chennai</option><option>Sample High Court Bar, Bengaluru</option><option>Sample District Bar, Dhanbad</option></select></div>`
+    :regType==='firm'?`
+      <div class="fg2"><label>Primary Court Focus <span class="req">*</span></label><select><option>Select primary court</option><option>Supreme Court</option><option>High Courts</option><option>NCLT / NCLAT</option><option>All Courts</option></select></div>
+      <div class="fg2"><label>Number of Offices</label><input type="number" placeholder="e.g. 3"/></div>
+      <div class="fg2 sp2"><label>Office Cities</label><input type="text" placeholder="e.g. Mumbai, Delhi, Bengaluru"/></div>
+      <div class="fg2 sp2"><label>Bar Associations / Law Society Memberships</label><select multiple style="height:90px;"><option>Sample High Court Bar, Mumbai</option><option>Sample High Court Bar, Delhi</option><option>Sample City Law Society</option></select></div>`
+    :`<div class="fg2"><label>University / Law School <span class="req">*</span></label><input type="text" placeholder="e.g. National Law School of India University"/></div>
+      <div class="fg2"><label>Current Year / Semester <span class="req">*</span></label><select><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option><option>LLM / Postgrad</option></select></div>
+      <div class="fg2"><label>Expected Graduation</label><input type="month"/></div>
+      <div class="fg2"><label>CLAT / AILET Rank (optional)</label><input type="number" placeholder="e.g. 342"/></div>`}
+    </div>
+    <div class="form-nav"><button class="fn-back" onclick="prevRegStep()">← Back</button><button class="fn-next" onclick="nextRegStep()">Continue →</button></div></div>`;
+  } else if(regStep===4){
+    el.innerHTML=`<div class="reg-card"><div class="reg-step-ttl">Expertise, Languages & Operation</div><div class="reg-step-dsc">Help clients find you by specifying your areas of practice, languages and geographic reach.</div>
+    ${regType!=='student'?`<div class="fsec-ttl">Areas of Expertise</div>
+    <div class="ms-wrap"><div class="ms-sel" id="exp-sel"></div><div class="ms-opts">${['Constitutional Law','Criminal Defense','Corporate / M&A','Family & Matrimonial','IP & Patents','Insolvency / IBC','Tax & GST','Real Estate / RERA','Banking & Finance','Labour & Employment','Environmental / NGT','Arbitration','Cyber Law','Competition Law','Immigration'].map(a=>`<span class="ms-opt" onclick="toggleMSItem(this,'${a}','exp-sel')">${a}</span>`).join('')}</div></div>
+    <div class="fsec-ttl">Languages of Practice</div>
+    <div class="ms-wrap"><div class="ms-sel" id="lang-sel"><span class="ms-item">English ✕</span></div><div class="ms-opts">${['Hindi','Tamil','Telugu','Marathi','Bengali','Gujarati','Kannada','Malayalam','Urdu','Punjabi','Odia','Assamese'].map(l=>`<span class="ms-opt" onclick="toggleMSItem(this,'${l}','lang-sel')">${l}</span>`).join('')}</div></div>
+    <div class="fsec-ttl">Area of Operation</div>
+    <div class="ms-wrap"><div class="ms-sel" id="state-sel"></div><div class="ms-opts">${['Pan India','Delhi (NCT)','Maharashtra','Karnataka','Tamil Nadu','West Bengal','Gujarat','Telangana','Uttar Pradesh','Rajasthan','Madhya Pradesh','Punjab','Haryana','Bihar','Jharkhand'].map(s=>`<span class="ms-opt" onclick="toggleMSItem(this,'${s}','state-sel')">${s}</span>`).join('')}</div></div>
+    ${regType==='lawyer'?`<div class="fsec-ttl">Fee Structure</div>
+    <div class="fgrd">
+      <div class="fg2"><label>Per Appearance (₹)</label><input type="number" placeholder="e.g. 50000"/></div>
+      <div class="fg2"><label>Per Hour (₹)</label><input type="number" placeholder="e.g. 8000"/></div>
+      <div class="fg2"><label>Consultation Fee (₹)</label><input type="number" placeholder="e.g. 5000"/></div>
+      <div class="fg2"><label>Monthly Retainer (₹)</label><input type="number" placeholder="e.g. 200000"/></div>
+      <div class="fg2 sp2"><label>Professional Bio</label><textarea placeholder="Describe your professional background, notable cases, and areas of specialization (max 500 words)..."></textarea></div>
+    </div>`:''}`:`<div class="fg2 sp2" style="margin-bottom:1rem;"><label>Areas of Interest</label><select multiple style="height:90px;"><option>Corporate Law</option><option>Litigation</option><option>IP & Technology</option><option>Taxation</option><option>Constitutional Law</option><option>Criminal Law</option><option>Real Estate</option></select></div>`}
+    <div class="form-nav"><button class="fn-back" onclick="prevRegStep()">← Back</button><button class="fn-next" onclick="nextRegStep()">Review & Submit →</button></div></div>`;
+  } else if(regStep===5){
+    el.innerHTML=`<div class="reg-card" style="text-align:center;padding:2.5rem;"><div style="font-size:3rem;margin-bottom:1rem;">🎉</div><h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--ltx);margin-bottom:.75rem;">You're almost there!</h3><p style="font-size:.8rem;color:var(--lt2);max-width:460px;margin:0 auto 1.5rem;line-height:1.7;">Please review your details carefully before submitting. This is a preview: submitting does not send or store anything.</p>
+    ${regType==='lawyer'?`<div style="background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.18);border-radius:10px;padding:1rem;margin-bottom:1.5rem;font-size:.74rem;color:var(--lt2);line-height:1.65;text-align:left;">
+      <strong style="color:var(--ltx);display:block;margin-bottom:.35rem;">⚖️ Platform Notice</strong>
+      In the live platform, registering advocates will confirm that they are enrolled and in good standing, that their details are accurate, and that they understand The Akashic Records is a discovery platform only and does not facilitate solicitation or fee payments, in line with the Advocates Act, 1961 and applicable rules.
+    </div>`:''}
+    <button class="fn-next" style="padding:.65rem 2.5rem;" onclick="alert('Preview only: nothing was submitted or stored.')">Submit Registration →</button>
+    <div class="form-nav" style="justify-content:center;margin-top:1rem;"><button class="fn-back" onclick="prevRegStep()">← Edit Details</button></div></div>`;
+  }
+}
+
+function setRegType(t){
+  regType=t;
+  document.querySelectorAll('.rtcard').forEach(c=>c.classList.remove('sel'));
+  event.currentTarget.classList.add('sel');
+  document.querySelector('.fn-next').removeAttribute('disabled');
+  document.querySelector('.fn-next').style.opacity='1';
+}
+
+function toggleMSItem(el,val,containerId){
+  el.classList.toggle('on');
+  const container=document.getElementById(containerId);
+  if(el.classList.contains('on')){
+    const item=document.createElement('span');item.className='ms-item';item.textContent=val+' ✕';item.onclick=()=>{el.classList.remove('on');item.remove();};container.appendChild(item);
+  } else {
+    [...container.querySelectorAll('.ms-item')].find(i=>i.textContent===val+' ✕')?.remove();
+  }
+}
+
+function nextRegStep(){if(regStep<5){regStep++;updateRegProgress();renderRegStep();window.scrollTo(0,0);}}
+function prevRegStep(){if(regStep>1){regStep--;updateRegProgress();renderRegStep();window.scrollTo(0,0);}}
+
+function toggleBilling(){
+  annual=!annual;
+  const tw=document.getElementById('btog');tw.classList.toggle('on',annual);
+  document.getElementById('btl1').classList.toggle('on',!annual);
+  document.getElementById('btl2x').classList.toggle('on',annual);
+  document.querySelectorAll('.pca[data-m]').forEach(el=>{
+    const v=annual?Number(el.dataset.a):Number(el.dataset.m);
+    el.textContent=v.toLocaleString('en-IN');
+  });
+  ['fp1','fp2','cp1'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=annual?'per month (billed annually)':'per month';});
+  const cp2=document.getElementById('cp2');if(cp2)cp2.textContent=annual?'per year (save 25%)':'per year';
+}
+
+// Sample-data notice: shown on the first visit, and from the banner at any time.
+function openNotice(){document.getElementById('mvp-modal').classList.add('open');}
+function closeNotice(){document.getElementById('mvp-modal').classList.remove('open');try{localStorage.setItem('akashic-notice','1');}catch(e){}}
+try{if(!localStorage.getItem('akashic-notice'))openNotice();}catch(e){openNotice();}
+// Init
+initSF();
+
+document.querySelectorAll('.qc').forEach(c=>c.onclick=function(){goNav('dir');});
+document.querySelectorAll('.fch').forEach(t=>t.onclick=function(){this.classList.toggle('on');});
+</script>
+</body>
+</html>
